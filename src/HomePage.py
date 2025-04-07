@@ -21,7 +21,9 @@ x0_btn_login, y0_btn_login = 110, 530
 
 # creating the window
 win = tk.Tk()
+win.title("Home Page")
 win.geometry("400x700")
+win.resizable(False, False)
 
 # Title
 label_title = Label(text="Festival_Title", width=10, height=1, font=("Arial", 30), bg="#FFFFFF", fg="#000000")
