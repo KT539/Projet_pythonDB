@@ -42,7 +42,7 @@ btn_bands = tk.Button(win, text="Bands", width=10, height=1, font=("Arial", 15),
 btn_bands.place(x=x0_btn_bands, y=y0_btn_bands)
 
 # button to see my reservations
-btn_myRes = tk.Button(win, text="My reservations", width=15, height=1, font=("Arial", 15), fg="#000000")
+btn_myRes = tk.Button(win, text="Reservations", width=15, height=1, font=("Arial", 15), fg="#000000")
 btn_myRes.place(x=x0_btn_myRes, y=y0_btn_myRes)
 
 # login button
