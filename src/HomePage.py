@@ -52,3 +52,5 @@ def homepage_window():
     btn_login.place(x=x0_btn_login, y=y0_btn_login)
 
     win.mainloop()
+
+homepage_window()

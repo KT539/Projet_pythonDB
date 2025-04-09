@@ -57,3 +57,5 @@ def reservations_window():
     win.mainloop()
     cursor.close()
     connexion.close()
+
+reservations_window()
