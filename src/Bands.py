@@ -58,7 +58,7 @@ def bands_window():
     # example blocks
     for i, band in enumerate(bands):
         band_id, band_name, band_genre,band_desc,band_origin = band
-        block = tk.Label(inner_frame, text=f"{band_id} | Band Name : {band_name}\n | Genre  {band_genre}\n | Origin {band_origin}\n | Description {band_desc} ", bg="white", bd=1, relief="solid", padx=10, pady=10)
+        block = tk.Label(inner_frame, text=f"{band_id} | Band Name : {band_name} | Origin : {band_origin}\nGenre : {band_genre}\nDescription : {band_desc} ", bg="white", bd=1, relief="solid", padx=10, pady=10)
         block.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
     # stretch the blocks horizontally inside the frame
