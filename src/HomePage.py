@@ -1,5 +1,4 @@
 import tkinter as tk
-from src.Reservations import reservations_window
 
 def homepage_window():
     # creating the window
@@ -23,7 +22,7 @@ def homepage_window():
     label_title = tk.Label(win, text="Festival_Title", font=("Arial", 25, "bold"), fg="#000000")
     label_title.grid(row=0, column=0, pady=(15, 0))
 
-    # homePage image (on peut l'adapter pour l'image réelle si nécessaire)
+    # homePage image
     hp_image = tk.Label(win, text="Image", font=("Arial", 15), bg="#FFFFFF", fg="#000000")
     hp_image.grid(row=1, column=0, pady=(10, 20))
 
@@ -35,8 +34,8 @@ def homepage_window():
     btn_bands = tk.Button(win, text="Bands", font=("Arial", 15), fg="#000000")
     btn_bands.grid(row=3, column=0, pady=(5, 10))
 
-    # button to see my reservations
-    btn_myRes = tk.Button(win, text="Reservations", font=("Arial", 15), fg="#000000", command=reservations_window)
+    # button to see all reservations
+    btn_myRes = tk.Button(win, text="Reservations", font=("Arial", 15), fg="#000000")
     btn_myRes.grid(row=4, column=0, pady=(5, 10))
 
     # login button
