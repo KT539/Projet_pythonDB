@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import *
 import mysql.connector
 
 '''used both ChatGPT and official doc to learn how to connect to a database
@@ -30,32 +29,63 @@ def reservations_window():
     win.geometry("400x700")
     win.resizable(False, False)
 
-    # title
-    label_title = Label(text="Reservations", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
-    label_title.grid(row=0, column=0, padx=10, pady=20, sticky="n")
+    # create an outer frame
+    outer_frame = tk.Frame(win)
+    outer_frame.grid(row=0, column=0, sticky="nsew")
 
-    # frame
-    blocks_frame = tk.Frame(win, bg="lightgray", bd=2, relief="groove")
-    blocks_frame.grid(row=1, column=0, padx=10, pady=10, sticky="nsew")
+    # title label
+    label_title = tk.Label(outer_frame, text="Reservations", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
+    label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=20, sticky="n")
 
-    # stretch frame horizontally and vertically to fill the window
-    win.grid_rowconfigure(1, weight=1)
-    win.grid_columnconfigure(0, weight=1)
+    # embed the canvas and scrollbar in the outer frame
+    canvas = tk.Canvas(outer_frame, width=360, height=535)
+    scrollbar = tk.Scrollbar(outer_frame, orient="vertical", command=canvas.yview)
+    canvas.configure(yscrollcommand=scrollbar.set)
+    scrollbar.grid(row=1, column=1, sticky="ns")
+    canvas.grid(row=1, column=0, sticky="nsew", padx=5, pady=10)
+
+    # make the outer frame resizable
+    outer_frame.grid_rowconfigure(1, weight=1)
+    outer_frame.grid_columnconfigure(0, weight=1)
+
+    # return to HomePage button
+    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000")
+    btn_return.grid(row=2, column=0, columnspan=2, pady=10)
+
+    # embed an inner frame in the canvas
+    inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")
+    canvas_window = canvas.create_window((0, 0), window=inner_frame, anchor="nw")
+
 
     # example blocks
     for i, reservation in enumerate(reservations):
         res_id, date_res, first_name, last_name, concert_name, concert_date = reservation
-        block = tk.Label(blocks_frame, text=f"{res_id} | Reservation date : {date_res}\nVisitor : {first_name} {last_name}\nConcert : {concert_name} | Date : {concert_date}", bg="white", bd=1, relief="solid", padx=10, pady=10)
+        block = tk.Label(inner_frame, text=f"{res_id} | Reservation date : {date_res}\nVisitor : {first_name} {last_name}\nConcert : {concert_name} | Date : {concert_date}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         block.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
     # stretch the blocks horizontally inside the frame
-    blocks_frame.grid_columnconfigure(0, weight=1)
+    inner_frame.grid_columnconfigure(0, weight=1)
 
-    btn_return = tk.Button(win, text="Return to Home Page", font=("Arial", 12), fg="#000000")
-    btn_return.grid(row=2, column=0, pady=20)
+    # update the scrollregion
+    def update_scrollregion(event):
+        canvas.configure(scrollregion=canvas.bbox("all"))
+
+    inner_frame.bind("<Configure>", update_scrollregion)
+
+    # adjust widgets dynamic width
+    def resize_inner_frame(event):
+        canvas.itemconfig(canvas_window, width=event.width)
+
+    canvas.bind("<Configure>", resize_inner_frame)
+
+
+    def closing_win():
+        cursor.close()
+        connexion.close()
+        win.destroy()
+
+    win.protocol("WM_DELETE_WINDOW", closing_win)
 
     win.mainloop()
-    cursor.close()
-    connexion.close()
 
 reservations_window()
