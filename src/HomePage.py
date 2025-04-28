@@ -1,55 +1,47 @@
 import tkinter as tk
-from tkinter import *
 from src.Reservations import reservations_window
 
 def homepage_window():
-    # title position
-    x0_title, y0_title = 95, 25
-
-    # homePage image position
-    x0_hp_image, y0_hp_image = 60, 100
-
-    # concerts button position
-    x0_btn_concerts, y0_btn_concerts = 140, 295
-
-    # bands button position
-    x0_btn_bands, y0_btn_bands = 140, 360
-
-    # my reservations button position
-    x0_btn_myRes, y0_btn_myRes = 110, 425
-
-    # login button position
-    x0_btn_login, y0_btn_login = 110, 530
-
     # creating the window
     win = tk.Tk()
     win.title("Home Page")
     win.geometry("400x700")
     win.resizable(False, False)
 
-    # Title
-    label_title = Label(text="Festival_Title", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
-    label_title.place(x=x0_title, y=y0_title)
+    # configuring the grid
+    win.grid_rowconfigure(0, weight=1)
+    win.grid_rowconfigure(1, weight=1)
+    win.grid_rowconfigure(2, weight=1)
+    win.grid_rowconfigure(3, weight=1)
+    win.grid_rowconfigure(4, weight=1)
+    win.grid_rowconfigure(5, weight=1)
+    win.grid_rowconfigure(6, weight=1)
 
-    # homePage image
-    hp_image = tk.Label(win, text="Image", width=25, height=7, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
-    hp_image.place(x=x0_hp_image, y=y0_hp_image)
+    win.grid_columnconfigure(0, weight=1)
+
+    # Title
+    label_title = tk.Label(win, text="Festival_Title", font=("Arial", 25, "bold"), fg="#000000")
+    label_title.grid(row=0, column=0, pady=(15, 0))
+
+    # homePage image (on peut l'adapter pour l'image réelle si nécessaire)
+    hp_image = tk.Label(win, text="Image", font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    hp_image.grid(row=1, column=0, pady=(10, 20))
 
     # button to see all concerts
-    btn_concerts = tk.Button(win, text="Concerts", width=10, height=1, font=("Arial", 15), fg="#000000")
-    btn_concerts.place(x=x0_btn_concerts, y=y0_btn_concerts)
+    btn_concerts = tk.Button(win, text="Concerts", font=("Arial", 15), fg="#000000")
+    btn_concerts.grid(row=2, column=0, pady=(5, 10))
 
     # button to see all bands
-    btn_bands = tk.Button(win, text="Bands", width=10, height=1, font=("Arial", 15), fg="#000000")
-    btn_bands.place(x=x0_btn_bands, y=y0_btn_bands)
+    btn_bands = tk.Button(win, text="Bands", font=("Arial", 15), fg="#000000")
+    btn_bands.grid(row=3, column=0, pady=(5, 10))
 
     # button to see my reservations
-    btn_myRes = tk.Button(win, text="Reservations", width=15, height=1, font=("Arial", 15), fg="#000000", command=reservations_window)
-    btn_myRes.place(x=x0_btn_myRes, y=y0_btn_myRes)
+    btn_myRes = tk.Button(win, text="Reservations", font=("Arial", 15), fg="#000000", command=reservations_window)
+    btn_myRes.grid(row=4, column=0, pady=(5, 10))
 
     # login button
-    btn_login = tk.Button(win, text="Log in / Register", width=15, height=1, font=("Arial", 15), fg="#000000")
-    btn_login.place(x=x0_btn_login, y=y0_btn_login)
+    btn_login = tk.Button(win, text="Log in / Register", font=("Arial", 15), fg="#000000")
+    btn_login.grid(row=5, column=0, pady=(10, 10))
 
     win.mainloop()
 
