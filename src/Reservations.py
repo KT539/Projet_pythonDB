@@ -21,7 +21,6 @@ def reservations_window():
         INNER JOIN concerts ON reservations.concert_id = concerts.id'''
     )
     reservations = cursor.fetchall()
-    print(reservations)
 
     # creating the window
     win = tk.Tk()
@@ -79,6 +78,7 @@ def reservations_window():
     canvas.bind("<Configure>", resize_inner_frame)
 
 
+    # clean shutdown, suggested by ChatGPT
     def closing_win():
         cursor.close()
         connexion.close()
