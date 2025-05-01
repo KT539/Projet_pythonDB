@@ -1,3 +1,8 @@
+# Project: PythonDB
+# Title: Reservations.py
+# Author: Kilian Testard + Ahmet Karabulut
+# Version: 0.1, last modified:  01.05.2025
+
 import tkinter as tk
 import mysql.connector
 
