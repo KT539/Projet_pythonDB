@@ -2,7 +2,7 @@ import tkinter as tk
 from HomePage import homepage_window
 
 def main():
-    # creating the window
+    # creating the main window
     win = tk.Tk()
     win.title("Reservations")
     win.geometry("400x700")
