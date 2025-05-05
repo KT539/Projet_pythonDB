@@ -4,16 +4,13 @@
 # Version: 0.1, last modified:  01.05.2025
 
 import tkinter as tk
-import mysql.connector
+
 from DB_managment import reservations_requests
 
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def reservations_window(win):
-
-
-
 
     # create an outer frame
     outer_frame = tk.Frame(win)

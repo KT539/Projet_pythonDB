@@ -17,3 +17,21 @@ def reservations_requests():
             INNER JOIN concerts ON reservations.concert_id = concerts.id'''
                    )
     return cursor.fetchall()
+
+def concerts_requests():
+    cursor = connexion.cursor()
+    cursor.execute('''
+          SELECT concerts.id, concerts.date, concerts.scene_number
+          FROM concerts
+         '''
+                   )
+    return cursor.fetchall()
+
+def bands_requests():
+    cursor = connexion.cursor()
+    cursor.execute('''
+        SELECT bands.id, bands.name,bands.genre, bands.description,bands.origin
+        FROM bands
+       '''
+    )
+    return cursor.fetchall()
