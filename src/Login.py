@@ -2,20 +2,6 @@ import tkinter as tk
 from tkinter import *
 
 
-# Title position
-x0_title, y0_title = 85, 25
-
-# Email entry position
-x0_email, y0_email = 130, 150
-
-# Password entry position
-x0_pwd, y0_pwd = 130, 250
-
-# Login button position
-x0_btn_login, y0_btn_login = 130, 450
-
-# Register button position
-x0_btn_register, y0_btn_register = 130, 520
 
 # Creating the window
 win = tk.Tk()
@@ -23,28 +9,32 @@ win.title("Login / Register")
 win.geometry("400x700")
 win.resizable(False, False)
 
+# create an outer frame
+outer_frame = tk.Frame(win)
+outer_frame.grid(row=0, column=0, sticky="nsew")
+
 # Title
-label_title = Label(text="Login", width=10, height=1, font=("Arial", 30), bg="#FFFFFF", fg="#000000")
-label_title.place(x=x0_title, y=y0_title)
+label_title = tk.Label(outer_frame,text="Login", width=10, height=1, font=("Arial", 30), bg="#FFFFFF", fg="#000000")
+label_title.grid(row=0, column=0, columnspan=2,padx=80,pady=20, sticky="nsew")
 
 # Email entry
-email_label = Label(win, text="Enter your email", width=15, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
-email_label.place(x=x0_email, y=y0_email)
-email_entry = tk.Entry(win, width=40)
-email_entry.place(x=x0_email, y=y0_email + 35)
+email_label = tk.Label(outer_frame, text="Enter your email", width=15, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+email_label.grid(row=1, column=0, columnspan=2,padx=10,pady=20, sticky="nsew")
+email_entry = tk.Entry(outer_frame, width=40)
+email_entry.grid(row=2, column=0, columnspan=2,padx=10,pady=20)
 
 # Password entry
-password_label = Label(win, text="Enter your password", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
-password_label.place(x=x0_pwd, y=y0_pwd)
-password_entry = tk.Entry(win, width=40)
-password_entry.place(x=x0_pwd, y=y0_pwd + 35)
+password_label = tk.Label(outer_frame, text="Enter your password", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+password_label.grid(row=3, column=0, columnspan=2,padx=10,pady=20)
+password_entry = tk.Entry(outer_frame, width=40)
+password_entry.grid(row=4, column=0, columnspan=2,padx=10,pady=20)
 
 # Button to log in
-btn_login = tk.Button(win, text="Log in", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
-btn_login.place(x=x0_btn_login, y=y0_btn_login)
+btn_login = tk.Button(outer_frame, text="Log in", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+btn_login.grid(row=5, column=0, columnspan=2,padx=10,pady=20)
 
 # Button to register
-btn_register = tk.Button(win, text="Register", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
-btn_register.place(x=x0_btn_register, y=y0_btn_register)
+btn_register = tk.Button(outer_frame, text="Register", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+btn_register.grid(row=6, column=0, columnspan=2,padx=10,pady=20)
 
 win.mainloop()
