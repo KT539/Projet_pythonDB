@@ -3,7 +3,7 @@ import mysql.connector
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
-def concerts_window():
+def concerts_window(win):
 
     # connect to the database
     connexion = mysql.connector.connect(
@@ -21,11 +21,6 @@ def concerts_window():
     )
     concerts = cursor.fetchall()
 
-    # creating the window
-    win = tk.Tk()
-    win.title("Reservations")
-    win.geometry("400x700")
-    win.resizable(False, False)
 
     # create an outer frame
     outer_frame = tk.Frame(win)
@@ -46,8 +41,14 @@ def concerts_window():
     outer_frame.grid_rowconfigure(1, weight=1)
     outer_frame.grid_columnconfigure(0, weight=1)
 
+    # function to switch to Home page
+    def switch_HomePage():
+        outer_frame.destroy()
+        from HomePage import homepage_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        homepage_window(win)
+
     # return to HomePage button
-    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000")
+    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage)
     btn_return.grid(row=2, column=0, columnspan=2, pady=10)
 
     # embed an inner frame in the canvas
@@ -55,13 +56,13 @@ def concerts_window():
     canvas_window = canvas.create_window((0, 0), window=inner_frame, anchor="nw")
 
 
-    # example blocks
+    # put the widgets in the inner frame
     for i, concert in enumerate(concerts):
         cnrt_id, cnrt_date, cnrt_scene = concert
-        block = tk.Label(inner_frame, text=f"{cnrt_id} | Concert date : {cnrt_date}\nLocation : scene n° {cnrt_scene}", bg="white", bd=1, relief="solid", padx=10, pady=10)
-        block.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
+        widgets = tk.Label(inner_frame, text=f"{cnrt_id} | Concert date : {cnrt_date}\nLocation : scene n° {cnrt_scene}", bg="white", bd=1, relief="solid", padx=10, pady=10)
+        widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
-    # stretch the blocks horizontally inside the frame
+    # stretch the widgets horizontally inside the frame
     inner_frame.grid_columnconfigure(0, weight=1)
 
     # update the scrollregion
@@ -83,7 +84,3 @@ def concerts_window():
         win.destroy()
 
     win.protocol("WM_DELETE_WINDOW", closing_win)
-
-    win.mainloop()
-
-concerts_window()
