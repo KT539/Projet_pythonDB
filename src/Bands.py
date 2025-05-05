@@ -11,7 +11,7 @@ def bands_window(win):
     outer_frame.grid(row=0, column=0, sticky="nsew")
 
     # title label
-    label_title = tk.Label(outer_frame, text="BANDS", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
+    label_title = tk.Label(outer_frame, text="Bands", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
     label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=20, sticky="n")
 
     # embed the canvas and scrollbar in the outer frame

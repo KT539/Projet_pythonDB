@@ -13,17 +13,24 @@ def homepage_window(win):
     outer_frame = tk.Frame(win)
     outer_frame.grid(row=0, column=0, sticky="nsew")
 
+    # configure the outer frame to center the inner frame
+    # used ChatGPT to understand line weight, then wrote my own code
+    outer_frame.grid_rowconfigure(0, weight=2)
+    outer_frame.grid_rowconfigure(1, weight=0)
+    outer_frame.grid_rowconfigure(2, weight=2)
+    outer_frame.grid_columnconfigure(0, weight=1)
+
     # create an inner frame
     inner_frame = tk.Frame(outer_frame)
-    inner_frame.grid(row=0, column=0)
+    inner_frame.grid(row=1, column=0)
 
-    # Title
-    label_title = tk.Label(inner_frame, text="Home", font=("Arial", 25, "bold"))
-    label_title.grid(row=0, column=0, pady=(30, 10))
+    # title label
+    label_title = tk.Label(outer_frame, text="Home", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
+    label_title.grid(row=0, column=0, padx=10, pady=20, sticky="n")
 
     # homePage image
     hp_image = tk.Label(inner_frame, text="Background image", bg="#CCCCCC", width=30, height=10)
-    hp_image.grid(row=1, column=0, pady=10)
+    hp_image.grid(row=0, column=0, pady=75)
 
 
     # function to switch to reservations page

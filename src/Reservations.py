@@ -27,7 +27,7 @@ def reservations_window(win):
     scrollbar.grid(row=1, column=1, sticky="ns")
     canvas.grid(row=1, column=0, sticky="nsew", padx=5, pady=10)
 
-    # make the outer frame resizable
+    # make the outer frame expandable
     outer_frame.grid_rowconfigure(1, weight=1)
     outer_frame.grid_columnconfigure(0, weight=1)
 
