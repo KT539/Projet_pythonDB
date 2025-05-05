@@ -1,9 +1,15 @@
 import tkinter as tk
+from PIL import Image, ImageTk
 from Reservations import reservations_window
 from Concerts import concerts_window
 from Bands import bands_window
 
 def homepage_window(win):
+
+    image_path = ".//background_img.png"
+    img = Image.open(image_path)
+    img = img.resize((300, 200))
+    tk_img = ImageTk.PhotoImage(img)
 
     # configure the main window
     win.grid_rowconfigure(0, weight=1)
@@ -25,12 +31,13 @@ def homepage_window(win):
     inner_frame.grid(row=1, column=0)
 
     # title label
-    label_title = tk.Label(outer_frame, text="Home", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
-    label_title.grid(row=0, column=0, padx=10, pady=20, sticky="n")
+    label_title = tk.Label(inner_frame, text="Home", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
+    label_title.grid(row=0, column=0, padx=10, pady=(20, 40), sticky="n")
 
     # homePage image
-    hp_image = tk.Label(inner_frame, text="Background image", bg="#CCCCCC", width=30, height=10)
-    hp_image.grid(row=0, column=0, pady=75)
+    hp_image = tk.Label(inner_frame, image=tk_img)
+    hp_image.image = tk_img
+    hp_image.grid(row=1, column=0, pady=(10, 75))
 
 
     # function to switch to reservations page
@@ -40,7 +47,7 @@ def homepage_window(win):
 
     # button to see all reservations
     btn_reservations = tk.Button(inner_frame, text="Reservations", font=("Arial", 15), width=20, command=switch_reservations)
-    btn_reservations.grid(row=2, column=0, pady=5)
+    btn_reservations.grid(row=2, column=0, pady=10)
 
     # function to switch to concerts page
     def switch_concerts():
@@ -49,7 +56,7 @@ def homepage_window(win):
 
     # button to see all concerts
     btn_concerts = tk.Button(inner_frame, text="Concerts", font=("Arial", 15), width=20, command=switch_concerts)
-    btn_concerts.grid(row=3, column=0, pady=5)
+    btn_concerts.grid(row=3, column=0, pady=10)
 
     # function to switch to bands page
     def switch_bands():
@@ -58,4 +65,4 @@ def homepage_window(win):
 
     # button to see all bands
     btn_bands = tk.Button(inner_frame, text="Bands", font=("Arial", 15), width=20, command=switch_bands)
-    btn_bands.grid(row=4, column=0, pady=5)
+    btn_bands.grid(row=4, column=0, pady=(10, 125))
