@@ -5,28 +5,14 @@
 
 import tkinter as tk
 import mysql.connector
+from DB_managment import reservations_requests
 
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def reservations_window(win):
 
-    # connect to the database
-    connexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="festival_PythonDB"
-    )
 
-    cursor = connexion.cursor()
-    cursor.execute('''
-        SELECT reservations.id, reservations.date_reservation, visitors.first_name, visitors.last_name, concerts.name AS concert_title, concerts.date
-        FROM reservations
-        INNER JOIN visitors ON reservations.visitor_id = visitors.id
-        INNER JOIN concerts ON reservations.concert_id = concerts.id'''
-    )
-    reservations = cursor.fetchall()
 
 
     # create an outer frame
@@ -62,6 +48,7 @@ def reservations_window(win):
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")
     canvas_window = canvas.create_window((0, 0), window=inner_frame, anchor="nw")
 
+    reservations = reservations_requests()
 
     # put the widgets in the inner frame
     for i, reservation in enumerate(reservations):
@@ -83,12 +70,3 @@ def reservations_window(win):
         canvas.itemconfig(canvas_window, width=event.width)
 
     canvas.bind("<Configure>", resize_inner_frame)
-
-
-    # clean shutdown, suggested by ChatGPT
-    def closing_win():
-        cursor.close()
-        connexion.close()
-        win.destroy()
-
-    win.protocol("WM_DELETE_WINDOW", closing_win)
