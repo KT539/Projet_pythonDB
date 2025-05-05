@@ -4,7 +4,7 @@ from HomePage import homepage_window
 def main():
     # creating the main window
     win = tk.Tk()
-    win.title("Reservations")
+    win.title("Main Page")
     win.geometry("400x700")
     win.resizable(False, False)
 
