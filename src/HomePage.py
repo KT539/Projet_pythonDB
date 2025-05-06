@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-from Reservations import reservations_window
+from Reservations_admin import reservations_window
 from Concerts import concerts_window
 from Bands import bands_window
 

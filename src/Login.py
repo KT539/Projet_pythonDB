@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 
 def login_window(win):
@@ -35,11 +36,27 @@ def login_window(win):
     # Password entry
     password_label = tk.Label(inner_frame, text="Enter your password", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
     password_label.grid(row=3, column=0, columnspan=2,padx=10,pady=5)
-    password_entry = tk.Entry(inner_frame, width=40)
+    password_entry = tk.Entry(inner_frame, width=40, show="*")
     password_entry.grid(row=4, column=0, padx=10,pady=(5, 30))
 
+    # function to switch to Home page
+    def switch_HomePage():
+        outer_frame.destroy()
+        from HomePage import homepage_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        homepage_window(win)
+
+    # function to check the login credentials and make the switch
+    def check_login():
+        email = email_entry.get()
+        password = password_entry.get()
+        from DB_managment import login_request
+        if login_request(email, password):
+            switch_HomePage()
+        else:
+            messagebox.showerror("Invalid credentials, please try again")
+
     # Button to log in
-    btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=check_login)
     btn_login.grid(row=5, column=0, padx=10,pady=(20, 60))
 
     # registration label
