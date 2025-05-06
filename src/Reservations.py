@@ -50,7 +50,7 @@ def reservations_window(win):
     # put the widgets in the inner frame
     for i, reservation in enumerate(reservations):
         res_id, date_res, first_name, last_name, concert_name, concert_date = reservation
-        widgets = tk.Label(inner_frame, text=f"{res_id} | Reservation date : {date_res}\nVisitor : {first_name} {last_name}\nConcert : {concert_name} | Date : {concert_date}", bg="white", bd=1, relief="solid", padx=10, pady=10)
+        widgets = tk.Button(inner_frame, text=f"{res_id} | Reservation date : {date_res}\nVisitor : {first_name} {last_name}\nConcert : {concert_name} | Date : {concert_date}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
     # stretch the blocks horizontally inside the frame
