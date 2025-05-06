@@ -8,6 +8,13 @@ connexion = mysql.connector.connect(
     database="festival_PythonDB"
 )
 
+def login_request(email, password):
+    cursor = connexion.cursor()
+    cursor.execute("SELECT * FROM visitors WHERE email=%s AND hash=%s", (email, password)) # used ChatGPT about %s placeholder
+    visitor = cursor.fetchone()
+    cursor.close()
+    return visitor is not None
+
 def reservations_requests():
     cursor = connexion.cursor()
     cursor.execute('''

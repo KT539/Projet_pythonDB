@@ -10,8 +10,8 @@ def main():
     win.geometry("400x700")
     win.resizable(False, False)
 
-    # login_window(win)
-    homepage_window(win)
+    login_window(win)
+    #homepage_window(win)
     win.mainloop()
 
 main()
