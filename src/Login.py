@@ -39,6 +39,12 @@ def login_window(win):
     password_entry = tk.Entry(inner_frame, width=40, show="*")
     password_entry.grid(row=4, column=0, padx=10,pady=(5, 30))
 
+    # function to switch to admin Home page
+    def switch_HomePage_admin():
+        outer_frame.destroy()
+        from HomePage_admin import homepageAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        homepageAdmin_window(win)
+
     # function to switch to Home page
     def switch_HomePage():
         outer_frame.destroy()
@@ -49,8 +55,11 @@ def login_window(win):
     def check_login():
         email = email_entry.get()
         password = password_entry.get()
+        from DB_managment import loginAdmin_request
         from DB_managment import login_request
-        if login_request(email, password):
+        if loginAdmin_request(email, password):
+            switch_HomePage_admin()
+        elif login_request(email, password):
             switch_HomePage()
         else:
             messagebox.showerror("Invalid credentials, please try again")

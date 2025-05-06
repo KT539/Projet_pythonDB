@@ -10,7 +10,7 @@ from DB_managment import reservations_requests
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
-def reservations_window(win):
+def reservationsAdmin_window(win):
 
     # create an outer frame
     outer_frame = tk.Frame(win)
@@ -32,13 +32,13 @@ def reservations_window(win):
     outer_frame.grid_columnconfigure(0, weight=1)
 
     # function to switch to Home page
-    def switch_HomePage():
+    def switch_HomePage_admin():
         outer_frame.destroy()
-        from HomePage import homepage_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        homepage_window(win)
+        from HomePage_admin import homepageAdmin_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        homepageAdmin_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage)
+    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage_admin)
     btn_return.grid(row=2, column=0, columnspan=2, pady=10)
 
     # embed an inner frame in the canvas

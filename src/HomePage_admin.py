@@ -1,12 +1,12 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-from Reservations import reservations_window
-from Concerts import concerts_window
-from Bands import bands_window
+from Reservations_admin import reservationsAdmin_window
+from Concerts_admin import concertsAdmin_window
+from Bands_admin import bandsAdmin_window
 
-def homepage_window(win):
+def homepageAdmin_window(win):
 
-    image_path = ".//background_img.png"
+    image_path = ".//background_img_admin.png"
     img = Image.open(image_path)
     img = img.resize((300, 200))
     tk_img = ImageTk.PhotoImage(img)
@@ -41,28 +41,28 @@ def homepage_window(win):
 
 
     # function to switch to reservations page
-    def switch_reservations():
+    def switch_reservations_admin():
         outer_frame.destroy()
-        reservations_window(win)
+        reservationsAdmin_window(win)
 
     # button to see all reservations
-    btn_reservations = tk.Button(inner_frame, text="Reservations", font=("Arial", 15), width=20, command=switch_reservations)
+    btn_reservations = tk.Button(inner_frame, text="Reservations", font=("Arial", 15), width=20, command=switch_reservations_admin)
     btn_reservations.grid(row=2, column=0, pady=10)
 
     # function to switch to concerts page
-    def switch_concerts():
+    def switch_concerts_admin():
         outer_frame.destroy()
-        concerts_window(win)
+        concertsAdmin_window(win)
 
     # button to see all concerts
-    btn_concerts = tk.Button(inner_frame, text="Concerts", font=("Arial", 15), width=20, command=switch_concerts)
+    btn_concerts = tk.Button(inner_frame, text="Concerts", font=("Arial", 15), width=20, command=switch_concerts_admin)
     btn_concerts.grid(row=3, column=0, pady=10)
 
     # function to switch to bands page
-    def switch_bands():
+    def switch_bands_admin():
         outer_frame.destroy()
-        bands_window(win)
+        bandsAdmin_window(win)
 
     # button to see all bands
-    btn_bands = tk.Button(inner_frame, text="Bands", font=("Arial", 15), width=20, command=switch_bands)
+    btn_bands = tk.Button(inner_frame, text="Bands", font=("Arial", 15), width=20, command=switch_bands_admin)
     btn_bands.grid(row=4, column=0, pady=(10, 125))

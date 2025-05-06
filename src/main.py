@@ -1,5 +1,4 @@
 import tkinter as tk
-from HomePage import homepage_window
 from Login import login_window
 
 
@@ -11,7 +10,6 @@ def main():
     win.resizable(False, False)
 
     login_window(win)
-    #homepage_window(win)
     win.mainloop()
 
 main()

@@ -76,7 +76,8 @@ INSERT INTO visitors (id, first_name, last_name, birthdate, email, hash) VALUES
 (17, 'Mélanie', 'Favre', '1997-08-19', 'melanie.favre@gmail.com', 'hash17'),
 (18, 'Hugo', 'Marti', '1992-04-08', 'hugo.marti@lausanne.ch', 'hash18'),
 (19, 'Émilie', 'Renaud', '1995-01-30', 'emilie.renaud@unil.ch', 'hash19'),
-(20, 'Alex', 'Berthoud', '1989-10-26', 'alex.berthoud@bluewin.ch', 'hash20');
+(20, 'Alex', 'Berthoud', '1989-10-26', 'alex.berthoud@bluewin.ch', 'hash20'),
+(21, 'Kilian', 'Testard', '1999-10-26', 'kilian.testard@bluewin.ch', 'hash21');
 
 
 -- RESERVATIONS ------------------------------

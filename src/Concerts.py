@@ -25,6 +25,14 @@ def concerts_window(win):
     outer_frame.grid_rowconfigure(1, weight=1)
     outer_frame.grid_columnconfigure(0, weight=1)
 
+    # create a frame for bottom buttons
+    buttons_frame = tk.Frame(outer_frame)
+    buttons_frame.grid(row=2, column=0, columnspan=2, pady=10)
+
+    # make a reservation button
+    btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000")
+    btn_res.grid(row=0, column=0, columnspan=2, pady=(5, 15))
+
     # function to switch to Home page
     def switch_HomePage():
         outer_frame.destroy()
@@ -32,8 +40,8 @@ def concerts_window(win):
         homepage_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage)
-    btn_return.grid(row=2, column=0, columnspan=2, pady=10)
+    btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage)
+    btn_return.grid(row=1, column=0, columnspan=2, pady=10)
 
     # embed an inner frame in the canvas
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")
