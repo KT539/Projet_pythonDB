@@ -43,7 +43,7 @@ def visitorsAdmin_window(win):
     visitors = visitors_requests()
 
     # put the widgets in the inner frame
-    for i, visitor in enumerate(visitors):
+    for i, visitor in enumerate(visitors): # loop structure from ChatGPT
         vis_id, vis_first_name, vis_last_name, vis_birthdate, vis_email = visitor
         widgets = tk.Button(inner_frame, text=f"{vis_id} | Name : {vis_first_name} {vis_last_name}\nBirthdate : {vis_birthdate}\nEmail : {vis_email}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")

@@ -48,7 +48,7 @@ def reservationsAdmin_window(win):
     reservations = reservations_requests()
 
     # put the widgets in the inner frame
-    for i, reservation in enumerate(reservations):
+    for i, reservation in enumerate(reservations): # loop structure from ChatGPT
         res_id, date_res, first_name, last_name, concert_name, concert_date = reservation
         widgets = tk.Button(inner_frame, text=f"{res_id} | Reservation date : {date_res}\nVisitor : {first_name} {last_name}\nConcert : {concert_name} | Date : {concert_date}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")

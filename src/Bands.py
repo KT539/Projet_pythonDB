@@ -42,7 +42,7 @@ def bands_window(win):
     bands=bands_requests()
 
     # put the widgets in the inner frame
-    for i, band in enumerate(bands):
+    for i, band in enumerate(bands): # loop structure from ChatGPT
         band_id, band_name, band_genre,band_desc,band_origin = band
         widgets = tk.Label(inner_frame, text=f"{band_id} | Band Name : {band_name} | Origin : {band_origin}\nGenre : {band_genre}\nDescription : {band_desc} ", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
