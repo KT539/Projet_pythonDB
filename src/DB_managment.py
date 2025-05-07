@@ -32,6 +32,14 @@ def reservations_requests():
                    )
     return cursor.fetchall()
 
+def visitors_requests():
+    cursor = connexion.cursor()
+    cursor.execute('''
+            SELECT visitors.id, visitors.first_name, visitors.last_name, visitors.birthdate, visitors.email
+            FROM visitors'''
+                   )
+    return cursor.fetchall()
+
 def concerts_requests():
     cursor = connexion.cursor()
     cursor.execute('''
