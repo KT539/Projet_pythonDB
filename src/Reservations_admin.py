@@ -5,7 +5,7 @@
 
 import tkinter as tk
 
-from DB_managment import reservations_requests
+from DB_managment import reservationsAdmin_requests
 
 
 '''used both ChatGPT and official doc to learn how to connect to a database
@@ -45,7 +45,7 @@ def reservationsAdmin_window(win):
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")
     canvas_window = canvas.create_window((0, 0), window=inner_frame, anchor="nw")
 
-    reservations = reservations_requests()
+    reservations = reservationsAdmin_requests()
 
     # put the widgets in the inner frame
     for i, reservation in enumerate(reservations): # loop structure from ChatGPT
