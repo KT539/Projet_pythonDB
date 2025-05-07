@@ -1,5 +1,4 @@
 import tkinter as tk
-
 from DB_managment import reservations_requests
 
 
@@ -40,7 +39,7 @@ def reservations_window(win):
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")
     canvas_window = canvas.create_window((0, 0), window=inner_frame, anchor="nw")
 
-    reservations = reservations_requests()
+    reservations = reservations_requests(win.visitor_id)
 
     # put the widgets in the inner frame
     for i, reservation in enumerate(reservations):

@@ -55,11 +55,12 @@ def login_window(win):
     def check_login():
         email = email_entry.get()
         password = password_entry.get()
-        from DB_managment import loginAdmin_request
-        from DB_managment import login_request
+        from DB_managment import loginAdmin_request, login_request, get_visitor_id
         if loginAdmin_request(email, password):
+            win.visitor_id = get_visitor_id(email)
             switch_HomePage_admin()
         elif login_request(email, password):
+            win.visitor_id = get_visitor_id(email)
             switch_HomePage()
         else:
             messagebox.showerror("Invalid credentials, please try again")
