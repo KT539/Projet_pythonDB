@@ -37,17 +37,7 @@ def concerts_window(win):
 
     # make a reservation button
     btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000", command=switch_makeReservation)
-    btn_res.grid(row=0, column=0, padx=5, pady=(5, 15))
-
-    # function to switch to reservation deletion page
-    def switch_deleteReservation():
-        outer_frame.destroy()
-        from DeleteReservation import deleteReservation_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        deleteReservation_window(win)
-
-    # delete a reservation button
-    btn_cancel = tk.Button(buttons_frame, text="Cancel a reservation", font=("Arial", 12), fg="#000000", command=switch_deleteReservation)
-    btn_cancel.grid(row=0, column=1, padx=5, pady=(5, 15))
+    btn_res.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 15))
 
     # function to switch to Home page
     def switch_HomePage():

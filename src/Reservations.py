@@ -25,6 +25,21 @@ def reservations_window(win):
     outer_frame.grid_rowconfigure(1, weight=1)
     outer_frame.grid_columnconfigure(0, weight=1)
 
+    # create a frame for bottom buttons
+    buttons_frame = tk.Frame(outer_frame)
+    buttons_frame.grid(row=2, column=0, pady=10)
+
+    # function to switch to reservation deletion page
+    def switch_deleteReservation():
+        outer_frame.destroy()
+        from DeleteReservation import \
+            deleteReservation_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        deleteReservation_window(win)
+
+    # delete a reservation button
+    btn_cancel = tk.Button(buttons_frame, text="Cancel a reservation", font=("Arial", 12), fg="#000000", command=switch_deleteReservation)
+    btn_cancel.grid(row=0, column=1, columnspan=2, padx=5, pady=(5, 15))
+
     # function to switch to Home page
     def switch_HomePage():
         outer_frame.destroy()
@@ -32,8 +47,8 @@ def reservations_window(win):
         homepage_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage)
-    btn_return.grid(row=2, column=0, columnspan=2, pady=10)
+    btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage)
+    btn_return.grid(row=1, column=0, columnspan=2, pady=10)
 
     # embed an inner frame in the canvas
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")

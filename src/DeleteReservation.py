@@ -43,11 +43,11 @@ def deleteReservation_window(win):
     btn_confirm.grid(row=4, column=0, pady=(50, 10))
 
     # function to switch to registration page
-    def switch_concerts():
+    def switch_reservations():
         outer_frame.destroy()
-        from Concerts import concerts_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        concerts_window(win)
+        from Reservations import reservations_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        reservations_window(win)
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_concerts)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_reservations)
     btn_cancel.grid(row=5, column=0, pady=(10, 130))
