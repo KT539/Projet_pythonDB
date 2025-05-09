@@ -22,6 +22,7 @@ def login_request(email, password):
     cursor.close()
     return visitor is not None
 
+# used ChatGPT as corrector for my code
 def get_visitor_id(email):
     cursor = connexion.cursor()
     cursor.execute("SELECT id FROM visitors WHERE email=%s", (email,))
@@ -62,7 +63,7 @@ def visitors_requests():
 def concerts_requests():
     cursor = connexion.cursor()
     cursor.execute('''
-          SELECT concerts.id, concerts.date, concerts.scene_number
+          SELECT concerts.id, concerts.name, concerts.date, concerts.scene_number
           FROM concerts
          '''
                    )

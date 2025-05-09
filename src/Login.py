@@ -70,9 +70,15 @@ def login_window(win):
     btn_login.grid(row=5, column=0, padx=10,pady=(20, 60))
 
     # registration label
-    label_title = tk.Label(inner_frame, text="Not registered yet ?", width=20, height=1, font=("Arial", 15), fg="#000000")
-    label_title.grid(row=6, column=0, padx=10, pady=(60, 10), sticky="n")
+    label_registration = tk.Label(inner_frame, text="Not registered yet ?", width=20, height=1, font=("Arial", 15), fg="#000000")
+    label_registration.grid(row=6, column=0, padx=10, pady=(60, 10), sticky="n")
+
+    # function to switch to registration page
+    def switch_register():
+        outer_frame.destroy()
+        from Register import register_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        register_window(win)
 
     # Button to register
-    btn_register = tk.Button(inner_frame, text="Sign up", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    btn_register = tk.Button(inner_frame, text="Sign up", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_register)
     btn_register.grid(row=7, column=0, padx=10,pady=(10, 50))

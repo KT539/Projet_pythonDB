@@ -29,8 +29,14 @@ def concerts_window(win):
     buttons_frame = tk.Frame(outer_frame)
     buttons_frame.grid(row=2, column=0, columnspan=2, pady=10)
 
+    # function to switch to registration page
+    def switch_makeReservation():
+        outer_frame.destroy()
+        from MakeReservation import makeReservation_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        makeReservation_window(win)
+
     # make a reservation button
-    btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000")
+    btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000", command=switch_makeReservation)
     btn_res.grid(row=0, column=0, padx=5, pady=(5, 15))
 
     # cancel a reservation button
@@ -55,8 +61,8 @@ def concerts_window(win):
 
     # put the widgets in the inner frame
     for i, concert in enumerate(concerts): # loop structure from ChatGPT
-        cnrt_id, cnrt_date, cnrt_scene = concert
-        widgets = tk.Button(inner_frame, text=f"{cnrt_id} | Concert date : {cnrt_date}\nLocation : scene n° {cnrt_scene}", bg="white", bd=1, relief="solid", padx=10, pady=10)
+        cnrt_id, cnrt_name, cnrt_date, cnrt_scene = concert
+        widgets = tk.Button(inner_frame, text=f"{cnrt_id} | Concert name : {cnrt_name}\nConcert date : {cnrt_date}\nLocation : scene n° {cnrt_scene}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
     # stretch the widgets horizontally inside the frame

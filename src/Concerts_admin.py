@@ -55,8 +55,8 @@ def concertsAdmin_window(win):
 
     # put the widgets in the inner frame
     for i, concert in enumerate(concerts): # loop structure from ChatGPT
-        cnrt_id, cnrt_date, cnrt_scene = concert
-        widgets = tk.Button(inner_frame, text=f"{cnrt_id} | Concert date : {cnrt_date}\nLocation : scene n° {cnrt_scene}", bg="white", bd=1, relief="solid", padx=10, pady=10)
+        cnrt_id, cnrt_name, cnrt_date, cnrt_scene = concert
+        widgets = tk.Button(inner_frame, text=f"{cnrt_id} | Concert name : {cnrt_name}\nConcert date : {cnrt_date}\nLocation : scene n° {cnrt_scene}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
     # stretch the widgets horizontally inside the frame
