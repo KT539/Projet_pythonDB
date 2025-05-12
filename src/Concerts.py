@@ -1,10 +1,12 @@
 import tkinter as tk
-
-from DB_managment import concerts_requests
+from tkinter import messagebox
+from DB_managment import concerts_requests, newReservation
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def concerts_window(win):
+    selected_concert = None
+    selected_concert_id = None
 
     # create an outer frame
     outer_frame = tk.Frame(win)
@@ -29,14 +31,18 @@ def concerts_window(win):
     buttons_frame = tk.Frame(outer_frame)
     buttons_frame.grid(row=2, column=0, columnspan=2, pady=10)
 
-    # function to switch to new reservation page
-    def switch_makeReservation():
-        outer_frame.destroy()
-        from MakeReservation import makeReservation_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        makeReservation_window(win)
+    def handle_newReservation():
+        nonlocal selected_concert_id
+        if selected_concert_id is None:
+            messagebox.showerror("No concert selected")
+        else:
+            newReservation(selected_concert_id, win.visitor_id)
+            messagebox.showinfo("You have made a new reservation.")
+            outer_frame.destroy()
+            concerts_window(win)
 
     # make a reservation button
-    btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000", command=switch_makeReservation)
+    btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000", command=lambda:handle_newReservation())
     btn_res.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 15))
 
     # function to switch to Home page
@@ -61,6 +67,9 @@ def concerts_window(win):
         widgets = tk.Button(inner_frame, text=f"{cnrt_id} | Concert name : {cnrt_name}\nConcert date : {cnrt_date}\nLocation : scene n° {cnrt_scene}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
+        # Bind the click event, taken from ChatGPT
+        widgets.bind("<Button-1>", lambda event, w=widgets, cid=cnrt_id: select_concert(w, cid))
+
     # stretch the widgets horizontally inside the frame
     inner_frame.grid_columnconfigure(0, weight=1)
 
@@ -75,6 +84,25 @@ def concerts_window(win):
         canvas.itemconfig(canvas_window, width=event.width)
 
     canvas.bind("<Configure>", resize_inner_frame)
+
+
+    def select_concert(widget, cnrt_id):
+        nonlocal selected_concert, selected_concert_id # changed global to nonlocal on ChatGPT's suggestion
+        # deselect a widget on click
+        if widget == selected_concert:
+            widget.config(bg="white")
+            selected_concert = None
+            selected_concert_id = None
+        else:
+            # Deselect the previously selected widget
+            if selected_concert is not None:
+                selected_concert.config(bg="white")
+
+            # Select the new widget
+            widget.config(bg="lightgray")
+            selected_concert = widget
+            selected_concert_id = cnrt_id
+
 
 
 

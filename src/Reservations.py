@@ -1,10 +1,13 @@
 import tkinter as tk
+from tkinter import messagebox
 from DB_managment import reservations_requests
-
+from src.DB_managment import deleteReservation
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def reservations_window(win):
+    selected_reservation = None
+    selected_reservation_id = None
 
     # create an outer frame
     outer_frame = tk.Frame(win)
@@ -29,16 +32,19 @@ def reservations_window(win):
     buttons_frame = tk.Frame(outer_frame)
     buttons_frame.grid(row=2, column=0, pady=10)
 
-    # function to switch to reservation deletion page
-    def switch_deleteReservation():
-        outer_frame.destroy()
-        from DeleteReservation import \
-            deleteReservation_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        deleteReservation_window(win)
+    def handle_delete():
+        nonlocal selected_reservation_id
+        if selected_reservation_id is None:
+            messagebox.showwarning("No reservation selected.")
+        else:
+            deleteReservation(selected_reservation_id)
+            messagebox.showinfo("Your reservation has been cancelled.")
+            outer_frame.destroy()
+            reservations_window(win)
 
-    # delete a reservation button
-    btn_cancel = tk.Button(buttons_frame, text="Cancel a reservation", font=("Arial", 12), fg="#000000", command=switch_deleteReservation)
-    btn_cancel.grid(row=0, column=1, columnspan=2, padx=5, pady=(5, 15))
+    # cancel a reservation button
+    btn_cancel = tk.Button(buttons_frame, text="Cancel my reservation", font=("Arial", 12), fg="#000000", command=lambda:handle_delete())
+    btn_cancel.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 15))
 
     # function to switch to Home page
     def switch_HomePage():
@@ -62,6 +68,9 @@ def reservations_window(win):
         widgets = tk.Button(inner_frame, text=f"{res_id} | Reservation date : {date_res}\nVisitor : {first_name} {last_name}\nConcert : {concert_name} | Date : {concert_date}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
 
+        # Bind the click event, taken from ChatGPT
+        widgets.bind("<Button-1>", lambda event, w=widgets, rid=res_id: select_reservation(w, rid))
+
     # stretch the blocks horizontally inside the frame
     inner_frame.grid_columnconfigure(0, weight=1)
 
@@ -76,3 +85,20 @@ def reservations_window(win):
         canvas.itemconfig(canvas_window, width=event.width)
 
     canvas.bind("<Configure>", resize_inner_frame)
+
+
+    def select_reservation(widget, res_id):
+        nonlocal selected_reservation, selected_reservation_id
+        # deselect a widget on click
+        if widget == selected_reservation:
+            widget.config(bg="white")
+            selected_reservation = None
+            selected_reservation_id = None
+        else:
+            # deselect the previously selected widget
+            if selected_reservation is not None:
+                selected_reservation.config(bg="white")
+            # select the new widget
+            widget.config(bg="lightgray")
+            selected_reservation = widget
+            selected_reservation_id = res_id
