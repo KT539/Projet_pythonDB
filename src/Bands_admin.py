@@ -6,6 +6,8 @@ from src.DB_managment import bands_requests
 
 def bandsAdmin_window(win):
 
+    win.title("Bands - " + win.username)
+
     # create an outer frame
     outer_frame = tk.Frame(win)
     outer_frame.grid(row=0, column=0, sticky="nsew")

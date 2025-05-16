@@ -12,6 +12,8 @@ from DB_managment import reservationsAdmin_requests
    with Python and understand the basics of the mysql.connector library'''
 def reservationsAdmin_window(win):
 
+    win.title("Reservations - " + win.username)
+
     # create an outer frame
     outer_frame = tk.Frame(win)
     outer_frame.grid(row=0, column=0, sticky="nsew")

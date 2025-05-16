@@ -4,6 +4,8 @@ from tkinter import messagebox
 
 def login_window(win):
 
+    win.title("Login")
+
     # configure the main window
     win.grid_rowconfigure(0, weight=1)
     win.grid_columnconfigure(0, weight=1)
@@ -55,12 +57,14 @@ def login_window(win):
     def check_login():
         email = email_entry.get()
         password = password_entry.get()
-        from DB_managment import loginAdmin_request, login_request, get_visitor_id
+        from DB_managment import loginAdmin_request, login_request, get_visitor_id, get_username
         if loginAdmin_request(email, password):
             win.visitor_id = get_visitor_id(email)
+            win.username = get_username(email)
             switch_HomePage_admin()
         elif login_request(email, password):
             win.visitor_id = get_visitor_id(email)
+            win.username = get_username(email)
             switch_HomePage()
         else:
             messagebox.showerror("Invalid credentials, please try again")

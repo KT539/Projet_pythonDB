@@ -5,6 +5,9 @@ from DB_managment import concerts_requests, newReservation
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def concerts_window(win):
+
+    win.title("Concerts - " + win.username)
+
     selected_concert = None
     selected_concert_id = None
 

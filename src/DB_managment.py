@@ -36,6 +36,14 @@ def get_visitor_id(email):
     cursor.close()
     return vis_id[0] if vis_id else None
 
+def get_username(email):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('SELECT first_name FROM visitors WHERE email=%s', (email,))
+    username = cursor.fetchone()
+    cursor.close()
+    return username[0] if username else None
+
 def reservations_requests(visitor_id):
     conn = connect_to_DB()
     cursor = conn.cursor()

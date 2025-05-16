@@ -6,6 +6,8 @@ from Bands import bands_window
 
 def homepage_window(win):
 
+    win.title("Home - " + win.username)
+
     image_path = ".//background_img.png"
     img = Image.open(image_path)
     img = img.resize((300, 200))

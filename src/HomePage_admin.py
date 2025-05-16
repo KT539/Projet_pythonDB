@@ -7,6 +7,8 @@ from Visitors_admin import visitorsAdmin_window
 
 def homepageAdmin_window(win):
 
+    win.title("Home - " + win.username)
+
     image_path = ".//background_img_admin.png"
     img = Image.open(image_path)
     img = img.resize((300, 200))

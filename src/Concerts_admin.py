@@ -6,6 +6,8 @@ from DB_managment import concerts_requests
    with Python and understand the basics of the mysql.connector library'''
 def concertsAdmin_window(win):
 
+    win.title("Concerts - " + win.username)
+
     # create an outer frame
     outer_frame = tk.Frame(win)
     outer_frame.grid(row=0, column=0, sticky="nsew")

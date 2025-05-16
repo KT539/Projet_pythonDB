@@ -7,6 +7,8 @@ from DB_managment import visitors_requests
    with Python and understand the basics of the mysql.connector library'''
 def visitorsAdmin_window(win):
 
+    win.title("Visitors - " + win.username)
+
     # create an outer frame
     outer_frame = tk.Frame(win)
     outer_frame.grid(row=0, column=0, sticky="nsew")
