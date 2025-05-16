@@ -3,6 +3,7 @@ from PIL import Image, ImageTk
 from Reservations import reservations_window
 from Concerts import concerts_window
 from Bands import bands_window
+from Login import login_window
 
 def homepage_window(win):
 
@@ -39,7 +40,7 @@ def homepage_window(win):
     # homePage image
     hp_image = tk.Label(inner_frame, image=tk_img)
     hp_image.image = tk_img
-    hp_image.grid(row=1, column=0, pady=(10, 75))
+    hp_image.grid(row=1, column=0, pady=(10, 60))
 
 
     # function to switch to reservations page
@@ -67,4 +68,13 @@ def homepage_window(win):
 
     # button to see all bands
     btn_bands = tk.Button(inner_frame, text="Bands", font=("Arial", 15), width=20, command=switch_bands)
-    btn_bands.grid(row=4, column=0, pady=(10, 125))
+    btn_bands.grid(row=4, column=0, pady=10)
+
+    # function to switch to login page
+    def switch_login():
+        outer_frame.destroy()
+        login_window(win)
+
+    # logout button
+    btn_logout = tk.Button(inner_frame, text="Log out", font=("Arial", 15), width=20, command=switch_login)
+    btn_logout.grid(row=5, column=0, pady=(65, 30))

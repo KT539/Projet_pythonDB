@@ -4,6 +4,8 @@ from Reservations_admin import reservationsAdmin_window
 from Concerts_admin import concertsAdmin_window
 from Bands_admin import bandsAdmin_window
 from Visitors_admin import visitorsAdmin_window
+from src.Login import login_window
+
 
 def homepageAdmin_window(win):
 
@@ -40,7 +42,7 @@ def homepageAdmin_window(win):
     # homePage image
     hp_image = tk.Label(inner_frame, image=tk_img)
     hp_image.image = tk_img
-    hp_image.grid(row=1, column=0, pady=(10, 75))
+    hp_image.grid(row=1, column=0, pady=(10, 30))
 
     # function to switch to visitors page
     def switch_visitors_admin():
@@ -76,4 +78,13 @@ def homepageAdmin_window(win):
 
     # button to see all bands
     btn_bands = tk.Button(inner_frame, text="Bands", font=("Arial", 15), width=20, command=switch_bands_admin)
-    btn_bands.grid(row=5, column=0, pady=(10, 125))
+    btn_bands.grid(row=5, column=0, pady=10)
+
+    # function to switch to login page
+    def switch_login():
+        outer_frame.destroy()
+        login_window(win)
+
+    # logout button
+    btn_logout = tk.Button(inner_frame, text="Log out", font=("Arial", 15), width=20, command=switch_login)
+    btn_logout.grid(row=6, column=0, pady=(50, 30))
