@@ -72,7 +72,7 @@ def login_window(win):
             win.username = get_username(email)
             switch_HomePage()
         else:
-            messagebox.showinfo("Warning", "Invalid credentials, please try again.")
+            messagebox.showerror("Error", "Invalid credentials, please try again.")
 
     # Button to log in
     btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=check_login)
