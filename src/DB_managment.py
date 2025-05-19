@@ -2,6 +2,7 @@
 # Title: DB_managment.py
 # Author: Kilian Testard + Ahmet Karabulut
 # Version: 0.2, last modified:  19.05.2025
+from tkinter import messagebox
 
 import mysql.connector
 from datetime import date
@@ -12,7 +13,7 @@ def connect_to_DB():
         host="localhost",
         user="root",
         password="root",
-        database="festival_PythonDB"
+        database="festival_pythondb"
     )
     return connexion
 
@@ -62,10 +63,23 @@ def reservationsAdmin_requests():
     return cursor.fetchall()
 
 def newReservation(selected_concert_id, visitor_id):
+
     conn = connect_to_DB()
     cursor = conn.cursor()
-    cursor.execute('INSERT INTO reservations (date_reservation, concert_id, visitor_id) VALUES (%s, %s, %s)', (date.today(), selected_concert_id, visitor_id))
-    conn.commit()
+    # control pour déja resérvé
+    cursor.execute(
+        "SELECT * FROM reservations WHERE concert_id = %s AND visitor_id = %s",
+        (selected_concert_id, visitor_id)
+    )
+    existing = cursor.fetchone()
+    if existing:
+        success=False
+    else:
+        cursor.execute('INSERT INTO reservations (date_reservation, concert_id, visitor_id) VALUES (%s, %s, %s)', (date.today(), selected_concert_id, visitor_id))
+        conn.commit()
+        success=True
+    return success
+
 
 def deleteReservation(selected_reservation_id):
     conn = connect_to_DB()
