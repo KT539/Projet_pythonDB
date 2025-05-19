@@ -9,7 +9,7 @@ from DB_managment import newBand
 
 def addBand_window(win):
 
-    win.title("Adding a new band" + win.username)
+    win.title("Adding a new band - " + win.username)
 
     # configure the main window
     win.grid_rowconfigure(0, weight=1)

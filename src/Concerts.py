@@ -48,11 +48,11 @@ def concerts_window(win):
             from DB_managment import newReservation
             success= newReservation(selected_concert_id, win.visitor_id)
             if success:
-                messagebox.showinfo("You have made a new reservation.")
+                messagebox.showinfo("Warning","You have made a new reservation.")
                 outer_frame.destroy()
                 concerts_window(win)
             else:
-                messagebox.showwarning("Warning","You have already reserved this concert")
+                messagebox.showinfo("Warning","You have already reserved this concert")
     # make a reservation button
     btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000", command=lambda:handle_newReservation())
     btn_res.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 15))
