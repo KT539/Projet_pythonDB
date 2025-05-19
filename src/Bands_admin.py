@@ -45,10 +45,10 @@ def bandsAdmin_window(win):
     def handle_delete():
         nonlocal selected_band_id
         if selected_band_id is None:
-            messagebox.showwarning("No reservation selected.")
+            messagebox.showinfo("Warning", "No reservation selected.")
         else:
             deleteBand(selected_band_id)
-            messagebox.showinfo("You have deleted a concert.")
+            messagebox.showinfo("Confirmation", "You have deleted a concert.")
             outer_frame.destroy()
             bandsAdmin_window(win)
 

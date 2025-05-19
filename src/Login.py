@@ -72,10 +72,10 @@ def login_window(win):
             win.username = get_username(email)
             switch_HomePage()
         else:
-            messagebox.showerror("Invalid credentials, please try again")
+            messagebox.showinfo("Warning", "Invalid credentials, please try again.")
 
     # Button to log in
-    btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=check_login)
+    btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=check_login)
     btn_login.grid(row=5, column=0, padx=10,pady=(20, 60))
 
     # registration label
@@ -89,5 +89,5 @@ def login_window(win):
         register_window(win)
 
     # Button to register
-    btn_register = tk.Button(inner_frame, text="Sign up", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_register)
+    btn_register = tk.Button(inner_frame, text="Sign up", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_register)
     btn_register.grid(row=7, column=0, padx=10,pady=(10, 50))

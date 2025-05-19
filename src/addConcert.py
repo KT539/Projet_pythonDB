@@ -32,11 +32,11 @@ def addConcert_window(win):
 
     # title label
     label_title = tk.Label(inner_frame, text="Please enter the \nconcert's details", width=20, height=2, font=("Arial", 20, "bold"), fg="#000000")
-    label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 25), sticky="n")
+    label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(10, 30), sticky="n")
 
     # concert name entry
     cname_label = tk.Label(inner_frame, text="Enter the concert's name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
-    cname_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(25, 5), sticky="nsew")
+    cname_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(30, 5), sticky="nsew")
     cname_entry = tk.Entry(inner_frame, width=60)
     cname_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 10))
 
@@ -65,7 +65,7 @@ def addConcert_window(win):
     mcap_entry.grid(row=10, column=0, columnspan=2, padx=10, pady=(5, 10))
 
     # band_id entry
-    bndid_label = tk.Label(inner_frame, text="Enter the concert's performing band's ID number", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
+    bndid_label = tk.Label(inner_frame, text="Enter performing band's ID number", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     bndid_label.grid(row=11, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     bndid_entry = tk.Entry(inner_frame, width=60)
     bndid_entry.grid(row=12, column=0, columnspan=2, padx=10, pady=(5, 10))
@@ -86,13 +86,13 @@ def addConcert_window(win):
         band_id = bndid_entry.get().strip()
 
         newConcert(concert_name, concert_date, concert_price, scene_number, max_capacity, band_id)
-        messagebox.showinfo("You have added a new concert.")
+        messagebox.showinfo("Confirmation", "You have added a new concert.")
         switch_Concerts_admin()
 
     # Button to add the concert
     btn_cadd = tk.Button(inner_frame, text="Add new concert", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_newConcert)
-    btn_cadd.grid(row=13, column=0, pady=(10, 10))
+    btn_cadd.grid(row=13, column=0, pady=(45, 5))
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_Concerts_admin)
-    btn_cancel.grid(row=13, column=1, pady=(10, 10))
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Concerts_admin)
+    btn_cancel.grid(row=13, column=1, pady=(45, 5))

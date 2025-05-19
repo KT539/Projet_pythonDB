@@ -32,11 +32,11 @@ def addBand_window(win):
 
     # title label
     label_title = tk.Label(inner_frame, text="Please enter the \nband's information", width=20, height=2, font=("Arial", 20, "bold"), fg="#000000")
-    label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 25), sticky="n")
+    label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 65), sticky="n")
 
     # band name entry
     bname_label = tk.Label(inner_frame, text="Enter the band's name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
-    bname_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(25, 5), sticky="nsew")
+    bname_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(65, 5), sticky="nsew")
     bname_entry = tk.Entry(inner_frame, width=60)
     bname_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 10))
 
@@ -56,7 +56,7 @@ def addBand_window(win):
     bdesc_label = tk.Label(inner_frame, text="Enter the band's description", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     bdesc_label.grid(row=7, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     bdesc_entry = tk.Entry(inner_frame, width=60)
-    bdesc_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 10))
+    bdesc_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 70))
 
     # function to switch to Concerts_admin page
     def switch_Bands_admin():
@@ -64,7 +64,7 @@ def addBand_window(win):
         from Bands_admin import bandsAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         bandsAdmin_window(win)
 
-    #function to handle adding a new concert
+    #function to handle adding a new band
     def handle_newBand():
         band_name = bname_entry.get().strip()
         band_genre = bgenre_entry.get().strip()
@@ -73,24 +73,14 @@ def addBand_window(win):
 
 
         newBand(band_name, band_genre, band_origin, band_description)
-        messagebox.showinfo("You have added a new band.")
+        messagebox.showinfo("Confirmation", "You have added a new band.")
         switch_Bands_admin()
 
-        # function to handle adding a new concert
-        def handle_newBand():
-            band_name = bname_entry.get().strip()
-            band_genre = bgenre_entry.get().strip()
-            band_origin = borigin_entry.get().strip()
-            band_description = bdesc_entry.get().strip()
-
-            newBand(band_name, band_genre, band_origin, band_description)
-            messagebox.showinfo("You have added a new band.")
-            switch_Bands_admin()
 
     # Button to add the band
     btn_cadd = tk.Button(inner_frame, text="Add new band", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_newBand)
-    btn_cadd.grid(row=13, column=0, pady=(10, 10))
+    btn_cadd.grid(row=13, column=0, pady=(70, 10))
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Bands_admin)
-    btn_cancel.grid(row=13, column=1, pady=(10, 10))
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Bands_admin)
+    btn_cancel.grid(row=13, column=1, pady=(70, 10))

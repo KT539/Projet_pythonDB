@@ -43,10 +43,10 @@ def reservations_window(win):
     def handle_delete():
         nonlocal selected_reservation_id
         if selected_reservation_id is None:
-            messagebox.showwarning("No reservation selected.")
+            messagebox.showinfo("Warning", "No reservation selected.")
         else:
             deleteReservation(selected_reservation_id)
-            messagebox.showinfo("Your reservation has been cancelled.")
+            messagebox.showinfo("Confirmation", "Your reservation has been cancelled.")
             outer_frame.destroy()
             reservations_window(win)
 
