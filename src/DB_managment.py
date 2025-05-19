@@ -73,6 +73,29 @@ def deleteReservation(selected_reservation_id):
     cursor.execute('DELETE FROM reservations WHERE reservations.id = %s', (selected_reservation_id,))
     conn.commit()
 
+def newConcert(concert_name, concert_date, concert_price, scene_number, max_capacity, band_id):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO concerts (name, date, price, scene_number, max_capacity, band_id) VALUES (%s, %s, %s, %s, %s, %s)', (concert_name, concert_date, concert_price, scene_number, max_capacity, band_id))
+    conn.commit()
+
+def deleteConcert(selected_concert_id):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM concerts WHERE concerts.id = %s', (selected_concert_id,))
+    conn.commit()
+
+def newBand(band_name, band_genre, band_origin, band_description):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO bands (name, genre, origin, description) VALUES (%s, %s, %s, %s)', (band_name, band_genre, band_origin, band_description))
+    conn.commit()
+
+def deleteBand(selected_band_id):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM bands WHERE bands.id = %s', (selected_band_id,))
+    conn.commit()
 
 def visitors_requests():
     conn = connect_to_DB()

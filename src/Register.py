@@ -9,6 +9,8 @@ from tkinter import messagebox
 
 def register_window(win):
 
+    win.title("Registration page")
+
     # configure the main window
     win.grid_rowconfigure(0, weight=1)
     win.grid_columnconfigure(0, weight=1)
