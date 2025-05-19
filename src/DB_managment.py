@@ -1,3 +1,8 @@
+# Project: PythonDB
+# Title: DB_managment.py
+# Author: Kilian Testard + Ahmet Karabulut
+# Version: 0.2, last modified:  19.05.2025
+
 import mysql.connector
 from datetime import date
 

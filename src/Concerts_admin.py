@@ -1,5 +1,9 @@
-import tkinter as tk
+# Project: PythonDB
+# Title: Concerts_admin.py
+# Author: Kilian Testard + Ahmet Karabulut
+# Version: 0.2, last modified:  19.05.2025
 
+import tkinter as tk
 from DB_managment import concerts_requests
 
 '''used both ChatGPT and official doc to learn how to connect to a database
@@ -75,3 +79,21 @@ def concertsAdmin_window(win):
         canvas.itemconfig(canvas_window, width=event.width)
 
     canvas.bind("<Configure>", resize_inner_frame)
+
+
+    '''def select_concert(widget, cnrt_id):
+        nonlocal selected_concert, selected_concert_id # changed global to nonlocal on ChatGPT's suggestion
+        # deselect a widget on click
+        if widget == selected_concert:
+            widget.config(bg="white")
+            selected_concert = None
+            selected_concert_id = None
+        else:
+            # Deselect the previously selected widget
+            if selected_concert is not None:
+                selected_concert.config(bg="white")
+
+            # Select the new widget
+            widget.config(bg="lightgray")
+            selected_concert = widget
+            selected_concert_id = cnrt_id'''

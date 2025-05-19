@@ -1,5 +1,9 @@
-import tkinter as tk
+# Project: PythonDB
+# Title: Visitors_admin.py
+# Author: Kilian Testard + Ahmet Karabulut
+# Version: 0.2, last modified:  19.05.2025
 
+import tkinter as tk
 from DB_managment import visitors_requests
 
 
