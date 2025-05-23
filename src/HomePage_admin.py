@@ -9,7 +9,7 @@ from Reservations_admin import reservationsAdmin_window
 from Concerts_admin import concertsAdmin_window
 from Bands_admin import bandsAdmin_window
 from Visitors_admin import visitorsAdmin_window
-from src.Login import login_window
+from Login import login_window
 
 
 def homepageAdmin_window(win):

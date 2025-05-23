@@ -6,7 +6,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from DB_managment import reservations_requests
-from src.DB_managment import deleteReservation
+from DB_managment import deleteReservation
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''

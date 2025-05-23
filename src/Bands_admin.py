@@ -4,7 +4,7 @@
 # Version: 0.2, last modified:  19.05.2025
 
 import tkinter as tk
-from src.DB_managment import bands_requests, deleteBand
+from DB_managment import bands_requests, deleteBand
 from tkinter import messagebox
 
 def bandsAdmin_window(win):
