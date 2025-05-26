@@ -111,6 +111,18 @@ def deleteBand(selected_band_id):
     cursor.execute('DELETE FROM bands WHERE bands.id = %s', (selected_band_id,))
     conn.commit()
 
+def deleteVisReservation(selected_visitor_id):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM reservations WHERE reservations.visitor_id = %s', (selected_visitor_id,))
+    conn.commit()
+
+def deleteVisitor(selected_visitor_id):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM visitors WHERE visitors.id = %s', (selected_visitor_id,))
+    conn.commit()
+
 def visitors_requests():
     conn = connect_to_DB()
     cursor = conn.cursor()

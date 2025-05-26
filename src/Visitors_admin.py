@@ -4,14 +4,18 @@
 # Version: 0.2, last modified:  19.05.2025
 
 import tkinter as tk
-from DB_managment import visitors_requests
-
+from tkinter import messagebox
+from DB_managment import visitors_requests, deleteVisitor
+from src.DB_managment import deleteVisReservation
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def visitorsAdmin_window(win):
 
     win.title("Visitors - " + win.username)
+
+    selected_visitor = None
+    selected_visitor_id = None
 
     # create an outer frame
     outer_frame = tk.Frame(win)
@@ -32,15 +36,39 @@ def visitorsAdmin_window(win):
     outer_frame.grid_rowconfigure(1, weight=1)
     outer_frame.grid_columnconfigure(0, weight=1)
 
+    # create a frame for bottom buttons
+    buttons_frame = tk.Frame(outer_frame)
+    buttons_frame.grid(row=2, column=0, columnspan=2, pady=10)
+
+    def handle_delete():
+        nonlocal selected_visitor_id
+        if selected_visitor_id is None:
+            messagebox.showwarning("Warning", "No visitor selected.")
+        else:
+            deleteVisReservation(selected_visitor_id)
+            deleteVisitor(selected_visitor_id)
+            messagebox.showinfo("Confirmation", "You have deleted a visitor account.")
+            outer_frame.destroy()
+            visitorsAdmin_window(win)
+
+    # update a visitor  button
+    btn_update = tk.Button(buttons_frame, text="update a visitor", font=("Arial", 12), fg="#000000")
+    btn_update.grid(row=0, column=0, padx=5, pady=(5, 15))
+
+    # delete a visitor button
+    btn_del = tk.Button(buttons_frame, text="Delete a visitor", font=("Arial", 12), fg="#000000", command=handle_delete)
+    btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
+
     # function to switch to Home page
     def switch_HomePage_admin():
         outer_frame.destroy()
-        from HomePage_admin import homepageAdmin_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        from HomePage_admin import homepageAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         homepageAdmin_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage_admin)
-    btn_return.grid(row=2, column=0, columnspan=2, pady=10)
+    btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage_admin)
+    btn_return.grid(row=1, column=0, columnspan=2, pady=10)
+
 
     # embed an inner frame in the canvas
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")
@@ -53,6 +81,9 @@ def visitorsAdmin_window(win):
         vis_id, vis_first_name, vis_last_name, vis_birthdate, vis_email = visitor
         widgets = tk.Button(inner_frame, text=f"{vis_id} | Name : {vis_first_name} {vis_last_name}\nBirthdate : {vis_birthdate}\nEmail : {vis_email}", bg="white", bd=1, relief="solid", padx=10, pady=10)
         widgets.grid(row=i, column=0, pady=5, padx=5, sticky="ew")
+
+        # Bind the click event, taken from ChatGPT
+        widgets.bind("<Button-1>", lambda event, w=widgets, vid=vis_id: select_visitor(w, vid))
 
     # stretch the blocks horizontally inside the frame
     inner_frame.grid_columnconfigure(0, weight=1)
@@ -68,3 +99,20 @@ def visitorsAdmin_window(win):
         canvas.itemconfig(canvas_window, width=event.width)
 
     canvas.bind("<Configure>", resize_inner_frame)
+
+    def select_visitor(widget, vis_id):
+        nonlocal selected_visitor, selected_visitor_id # changed global to nonlocal on ChatGPT's suggestion
+        # deselect a widget on click
+        if widget == selected_visitor:
+            widget.config(bg="white")
+            selected_concert = None
+            selected_concert_id = None
+        else:
+            # Deselect the previously selected widget
+            if selected_visitor is not None:
+                selected_visitor.config(bg="white")
+
+            # Select the new widget
+            widget.config(bg="lightgray")
+            selected_visitor = widget
+            selected_visitor_id = vis_id
