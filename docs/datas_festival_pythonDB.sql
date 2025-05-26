@@ -56,28 +56,28 @@ INSERT INTO concerts (id, name, date, price, scene_number, max_capacity, band_id
 -- VISITORS ----------------------
 
 
-INSERT INTO visitors (id, first_name, last_name, birthdate, email, hash) VALUES
-(1, 'Léa', 'Dupont', '1995-03-12', 'lea.dupont@gmail.com', 'hash1'),
-(2, 'Marc', 'Schneider', '1988-11-25', 'marc.schneider@bluewin.ch', 'hash2'),
-(3, 'Chloé', 'Baumann', '2000-07-04', 'chloe.baumann@epfl.ch', 'hash3'),
-(4, 'Julien', 'Moret', '1992-01-17', 'julien.moret@gmail.com', 'hash4'),
-(5, 'Nina', 'Müller', '1998-09-09', 'nina.mueller@unil.ch', 'hash5'),
-(6, 'David', 'Rossi', '1990-06-30', 'david.rossi@lausanne.ch', 'hash6'),
-(7, 'Emma', 'Keller', '1997-12-05', 'emma.keller@protonmail.com', 'hash7'),
-(8, 'Sophie', 'Hug', '1993-08-21', 'sophie.hug@epfl.ch', 'hash8'),
-(9, 'Lucas', 'Weber', '1985-04-14', 'lucas.weber@bluewin.ch', 'hash9'),
-(10, 'Laura', 'Fischer', '2001-10-10', 'laura.fischer@unil.ch', 'hash10'),
-(11, 'Thomas', 'Gérard', '1994-03-22', 'thomas.gerard@gmail.com', 'hash11'),
-(12, 'Anna', 'Bovet', '1996-05-18', 'anna.bovet@lausanne.ch', 'hash12'),
-(13, 'Sébastien', 'Joly', '1991-02-28', 'seb.joly@gmail.com', 'hash13'),
-(14, 'Claire', 'Perret', '1999-07-07', 'claire.perret@epfl.ch', 'hash14'),
-(15, 'Noah', 'Imhof', '1993-12-03', 'noah.imhof@bluewin.ch', 'hash15'),
-(16, 'Julie', 'Vogel', '1990-06-11', 'julie.vogel@protonmail.com', 'hash16'),
-(17, 'Mélanie', 'Favre', '1997-08-19', 'melanie.favre@gmail.com', 'hash17'),
-(18, 'Hugo', 'Marti', '1992-04-08', 'hugo.marti@lausanne.ch', 'hash18'),
-(19, 'Émilie', 'Renaud', '1995-01-30', 'emilie.renaud@unil.ch', 'hash19'),
-(20, 'Alex', 'Berthoud', '1989-10-26', 'alex.berthoud@bluewin.ch', 'hash20'),
-(21, 'Kilian', 'Testard', '1999-10-26', 'kilian.testard@bluewin.ch', 'hash21');
+INSERT INTO visitors (id, first_name, last_name, birthdate, email, hash, is_admin) VALUES
+(1, 'Léa', 'Dupont', '1995-03-12', 'lea.dupont@gmail.com', 'hash1', 0),
+(2, 'Marc', 'Schneider', '1988-11-25', 'marc.schneider@bluewin.ch', 'hash2', 0),
+(3, 'Chloé', 'Baumann', '2000-07-04', 'chloe.baumann@epfl.ch', 'hash3', 0),
+(4, 'Julien', 'Moret', '1992-01-17', 'julien.moret@gmail.com', 'hash4', 0),
+(5, 'Nina', 'Müller', '1998-09-09', 'nina.mueller@unil.ch', 'hash5', 0),
+(6, 'David', 'Rossi', '1990-06-30', 'david.rossi@lausanne.ch', 'hash6', 0),
+(7, 'Emma', 'Keller', '1997-12-05', 'emma.keller@protonmail.com', 'hash7', 0),
+(8, 'Sophie', 'Hug', '1993-08-21', 'sophie.hug@epfl.ch', 'hash8', 0),
+(9, 'Lucas', 'Weber', '1985-04-14', 'lucas.weber@bluewin.ch', 'hash9', 0),
+(10, 'Laura', 'Fischer', '2001-10-10', 'laura.fischer@unil.ch', 'hash10', 0),
+(11, 'Thomas', 'Gérard', '1994-03-22', 'thomas.gerard@gmail.com', 'hash11', 0),
+(12, 'Anna', 'Bovet', '1996-05-18', 'anna.bovet@lausanne.ch', 'hash12', 0),
+(13, 'Sébastien', 'Joly', '1991-02-28', 'seb.joly@gmail.com', 'hash13', 0),
+(14, 'Claire', 'Perret', '1999-07-07', 'claire.perret@epfl.ch', 'hash14', 0),
+(15, 'Noah', 'Imhof', '1993-12-03', 'noah.imhof@bluewin.ch', 'hash15', 0),
+(16, 'Julie', 'Vogel', '1990-06-11', 'julie.vogel@protonmail.com', 'hash16', 0),
+(17, 'Mélanie', 'Favre', '1997-08-19', 'melanie.favre@gmail.com', 'hash17', 0),
+(18, 'Hugo', 'Marti', '1992-04-08', 'hugo.marti@lausanne.ch', 'hash18', 0),
+(19, 'Émilie', 'Renaud', '1995-01-30', 'emilie.renaud@unil.ch', 'hash19', 0),
+(20, 'Alex', 'Berthoud', '1989-10-26', 'alex.berthoud@bluewin.ch', 'hash20', 0),
+(21, 'Kilian', 'Testard', '1999-10-26', 'kilian.testard@bluewin.ch', 'hash21', 1);
 
 
 -- RESERVATIONS ------------------------------

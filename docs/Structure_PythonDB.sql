@@ -25,6 +25,7 @@ CREATE TABLE if NOT EXISTS `visitors`(
 	`birthdate` DATE NULL,
 	`email` VARCHAR(75) NOT NULL UNIQUE,
 	`hash`VARCHAR(50) NOT NULL UNIQUE,
+	`is_admin` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id`))
 ENGINE = INNODB;
 
