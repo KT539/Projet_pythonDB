@@ -54,7 +54,7 @@ def visitorsAdmin_window(win):
     def switch_updateVisitor():
         outer_frame.destroy()
         from update_Visitor import updateVisitor_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        updateVisitor_window(win)
+        updateVisitor_window(win, selected_visitor_id)
 
     # update a visitor  button
     btn_update = tk.Button(buttons_frame, text="Update", font=("Arial", 12), fg="#000000", command=switch_updateVisitor)

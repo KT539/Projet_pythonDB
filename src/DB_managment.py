@@ -111,6 +111,12 @@ def deleteBand(selected_band_id):
     cursor.execute('DELETE FROM bands WHERE bands.id = %s', (selected_band_id,))
     conn.commit()
 
+def updateVisitor(selected_visitor_id, new_fname, new_lname, new_bdate, new_email):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE visitors SET first_name= %s, last_name = %s, birthdate = %s, email = %s WHERE visitors.id = %s', (new_fname, new_lname, new_bdate, new_email, selected_visitor_id))
+    conn.commit()
+
 def deleteVisReservation(selected_visitor_id):
     conn = connect_to_DB()
     cursor = conn.cursor()

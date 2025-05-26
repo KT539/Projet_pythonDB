@@ -5,9 +5,10 @@
 
 import tkinter as tk
 from tkinter import messagebox
+from DB_managment import updateVisitor
 
 
-def updateVisitor_window(win):
+def updateVisitor_window(win, selected_visitor_id):
 
     win.title("Updating visitor account - " + win.username)
 
@@ -59,8 +60,20 @@ def updateVisitor_window(win):
     email_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 15))
 
 
+    def handle_update():
+        new_fname = fname_entry.get()
+        new_lname = lname_entry.get()
+        new_bdate = bdate_entry.get()
+        new_email = email_entry.get()
+
+        updateVisitor(selected_visitor_id, new_fname, new_lname, new_bdate, new_email)
+        messagebox.showinfo("Confirmation", "You have updated the visitor account.")
+        outer_frame.destroy()
+        from Visitors_admin import visitorsAdmin_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        visitorsAdmin_window(win)
+
     # Button to update the account
-    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_update)
     btn_register.grid(row=11, column=0, pady=(20, 20))
 
     # function to switch to registration page
