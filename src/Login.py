@@ -4,6 +4,7 @@
 # Version: 0.2, last modified:  19.05.2025
 
 import tkinter as tk
+import hashlib
 from tkinter import messagebox
 
 
@@ -62,12 +63,13 @@ def login_window(win):
     def check_login():
         email = email_entry.get()
         password = password_entry.get()
+        password_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
         from DB_managment import loginAdmin_request, login_request, get_visitor_id, get_username
-        if loginAdmin_request(email, password):
+        if loginAdmin_request(email, password_hash):
             win.visitor_id = get_visitor_id(email)
             win.username = get_username(email)
             switch_HomePage_admin()
-        elif login_request(email, password):
+        elif login_request(email, password_hash):
             win.visitor_id = get_visitor_id(email)
             win.username = get_username(email)
             switch_HomePage()
