@@ -51,12 +51,17 @@ def visitorsAdmin_window(win):
             outer_frame.destroy()
             visitorsAdmin_window(win)
 
+    def switch_updateVisitor():
+        outer_frame.destroy()
+        from update_Visitor import updateVisitor_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        updateVisitor_window(win)
+
     # update a visitor  button
-    btn_update = tk.Button(buttons_frame, text="update a visitor", font=("Arial", 12), fg="#000000")
+    btn_update = tk.Button(buttons_frame, text="Update", font=("Arial", 12), fg="#000000", command=switch_updateVisitor)
     btn_update.grid(row=0, column=0, padx=5, pady=(5, 15))
 
     # delete a visitor button
-    btn_del = tk.Button(buttons_frame, text="Delete a visitor", font=("Arial", 12), fg="#000000", command=handle_delete)
+    btn_del = tk.Button(buttons_frame, text="Delete", font=("Arial", 12), fg="#000000", command=handle_delete)
     btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
 
     # function to switch to Home page
