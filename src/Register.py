@@ -2,9 +2,11 @@
 # Title: Register.py
 # Author: Kilian Testard + Ahmet Karabulut
 # Version: 0.2, last modified:  19.05.2025
-
+import hashlib
 import tkinter as tk
 from tkinter import messagebox
+
+from DB_managment import newVisitor
 
 
 def register_window(win):
@@ -64,16 +66,39 @@ def register_window(win):
     pword_entry = tk.Entry(inner_frame, width=60, show="*")
     pword_entry.grid(row=10, column=0, columnspan=2, padx=10, pady=(5, 15))
 
-
-    # Button to register
-    btn_register = tk.Button(inner_frame, text="Register", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
-    btn_register.grid(row=11, column=0, pady=(20, 20))
-
     # function to switch to registration page
     def switch_login():
         outer_frame.destroy()
         from Login import login_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         login_window(win)
+
+    def handle_register():
+        vis_fname = fname_entry.get().strip()
+        vis_lname = lname_entry.get().strip()
+        vis_birthdate = bdate_entry.get().strip()
+        vis_email = email_entry.get().strip()
+        password = pword_entry.get().strip()
+        vis_password_hash=hashlib.sha256(password.encode("utf-8")).hexdigest()
+
+        if not vis_fname or not vis_lname or not vis_birthdate or not vis_email or not vis_password_hash:
+            messagebox.showwarning("Warning", "Fields not filled correctly.")
+            return
+        try:
+            newVisitor(vis_fname, vis_lname, vis_birthdate, vis_email, vis_password_hash)
+        except ValueError as ve:
+            messagebox.showwarning("Warning", str(ve))
+            return
+        except Exception as e:
+            messagebox.showerror("Error", f"An unexpected error occurred:\n{str(e)}")
+            return
+        messagebox.showinfo("Confirmation", "Registered successfully.")
+        switch_login()
+
+
+    # Button to register
+    btn_register = tk.Button(inner_frame, text="Register", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_register)
+    btn_register.grid(row=11, column=0, pady=(20, 20))
+
 
     # Button to cancel
     btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_login)
@@ -82,3 +107,6 @@ def register_window(win):
     # required fields label
     rf_label = tk.Label(inner_frame, text="Fields marked with an * \nare mandatory", width=20, height=2, font=("Arial", 10), fg="#000000")
     rf_label.grid(row=12, column=0, columnspan=2, padx=10, pady=(15, 15), sticky="n")
+
+
+

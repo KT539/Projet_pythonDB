@@ -140,3 +140,18 @@ def bands_requests():
     cursor = conn.cursor()
     cursor.execute('SELECT bands.id, bands.name,bands.genre, bands.description,bands.origin FROM bands')
     return cursor.fetchall()
+
+
+def newVisitor(vis_fname, vis_lname, vis_birthdate, vis_email, vis_password_hash):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM visitors WHERE email = %s", (vis_email,))
+    existing_user = cursor.fetchone()
+    if existing_user:
+        conn.close()
+        raise ValueError("This email is already registered.")
+    cursor.execute('INSERT INTO visitors (first_name, last_name, birthdate, email, hash, is_admin) values (%s, %s, %s, %s,%s, %s)' ,
+                   (vis_fname, vis_lname, vis_birthdate, vis_email, vis_password_hash, 0))
+    conn.commit()
+
