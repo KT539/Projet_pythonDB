@@ -129,6 +129,12 @@ def deleteVisitor(selected_visitor_id):
     cursor.execute('DELETE FROM visitors WHERE visitors.id = %s', (selected_visitor_id,))
     conn.commit()
 
+def updatePassword(new_pswd_hash, visitor_id):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE visitors SET hash = %s WHERE visitors.id = %s', (new_pswd_hash, visitor_id))
+    conn.commit()
+
 def visitors_requests():
     conn = connect_to_DB()
     cursor = conn.cursor()

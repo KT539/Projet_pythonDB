@@ -45,7 +45,7 @@ def login_window(win):
     password_label = tk.Label(inner_frame, text="Enter your password", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
     password_label.grid(row=3, column=0, padx=10,pady=(25, 5), sticky="nsew")
     password_entry = tk.Entry(inner_frame, width=40, show="*")
-    password_entry.grid(row=4, column=0, padx=10,pady=(5, 30))
+    password_entry.grid(row=4, column=0, padx=10,pady=(5, 10))
 
     # function to switch to admin Home page
     def switch_HomePage_admin():
@@ -76,13 +76,23 @@ def login_window(win):
         else:
             messagebox.showerror("Error", "Invalid credentials, please try again.")
 
+    # function to switch to updatePassword page
+    def switch_updatePassword():
+        outer_frame.destroy()
+        from update_Password import updatePassword_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        updatePassword_window(win)
+
+    #button to modify password
+    btn_update_pswd = tk.Button(inner_frame, text="Forgot your password ?", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_updatePassword)
+    btn_update_pswd.grid(row=5, column=0, padx=10, pady=(5, 40))
+
     # Button to log in
     btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=check_login)
-    btn_login.grid(row=5, column=0, padx=10,pady=(20, 60))
+    btn_login.grid(row=6, column=0, padx=10,pady=(20, 60))
 
     # registration label
     label_registration = tk.Label(inner_frame, text="Not registered yet ?", width=20, height=1, font=("Arial", 15), fg="#000000")
-    label_registration.grid(row=6, column=0, padx=10, pady=(60, 10), sticky="n")
+    label_registration.grid(row=7, column=0, padx=10, pady=(50, 10), sticky="n")
 
     # function to switch to registration page
     def switch_register():
@@ -92,4 +102,4 @@ def login_window(win):
 
     # Button to register
     btn_register = tk.Button(inner_frame, text="Sign up", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_register)
-    btn_register.grid(row=7, column=0, padx=10,pady=(10, 50))
+    btn_register.grid(row=8, column=0, padx=10,pady=(10, 50))

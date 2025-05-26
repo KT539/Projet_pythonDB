@@ -1,5 +1,5 @@
 # Project: PythonDB
-# Title: updateVisitor.py
+# Title: update_Visitor.py
 # Author: Kilian Testard + Ahmet Karabulut
 # Version: 0.2, last modified:  19.05.2025
 
