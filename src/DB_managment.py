@@ -119,6 +119,12 @@ def deleteBand(selected_band_id):
     cursor.execute('DELETE FROM bands WHERE bands.id = %s', (selected_band_id,))
     conn.commit()
 
+def updateBand(selected_band_id, new_name, new_genre, new_origin, new_desc):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE bands SET name = %s, genre = %s, origin = %s, description = %s WHERE bands.id = %s', (new_name, new_genre, new_origin, new_desc, selected_band_id))
+    conn.commit()
+
 def updateVisitor(selected_visitor_id, new_fname, new_lname, new_bdate, new_email):
     conn = connect_to_DB()
     cursor = conn.cursor()

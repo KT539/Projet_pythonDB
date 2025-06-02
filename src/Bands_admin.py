@@ -45,10 +45,10 @@ def bandsAdmin_window(win):
     def handle_delete():
         nonlocal selected_band_id
         if selected_band_id is None:
-            messagebox.showwarning("Warning", "No reservation selected.")
+            messagebox.showwarning("Warning", "No band selected.")
         else:
             deleteBand(selected_band_id)
-            messagebox.showinfo("Confirmation", "You have deleted a concert.")
+            messagebox.showinfo("Confirmation", "You have deleted a band.")
             outer_frame.destroy()
             bandsAdmin_window(win)
 
@@ -60,6 +60,19 @@ def bandsAdmin_window(win):
     btn_del = tk.Button(buttons_frame, text="Delete a band", font=("Arial", 12), fg="#000000", command= handle_delete)
     btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
 
+    # function to switch to update_Band page
+    def switch_updateBand():
+        if selected_band_id is None:
+            messagebox.showwarning("Warning", "No band selected.")
+        else:
+            outer_frame.destroy()
+            from update_Band import updateBand_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+            updateBand_window(win, selected_band_id)
+
+    # update a band button
+    btn_updt = tk.Button(buttons_frame, text="Update a band", font=("Arial", 12), fg="#000000", command=switch_updateBand)
+    btn_updt.grid(row=1, column=0, columnspan=2, padx=5, pady=(5, 15))
+
     # function to switch to Home page
     def switch_HomePage_admin():
         outer_frame.destroy()
@@ -68,7 +81,7 @@ def bandsAdmin_window(win):
 
     # return to HomePage button
     btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage_admin)
-    btn_return.grid(row=1, column=0, columnspan=2, pady=10)
+    btn_return.grid(row=2, column=0, columnspan=2, pady=10)
 
     # embed an inner frame in the canvas
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")
