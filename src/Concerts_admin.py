@@ -7,6 +7,8 @@ import tkinter as tk
 from DB_managment import concerts_requests, deleteConcert
 from tkinter import messagebox
 
+from src.DB_managment import updateConcert
+
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def concertsAdmin_window(win):
@@ -62,6 +64,20 @@ def concertsAdmin_window(win):
     btn_del = tk.Button(buttons_frame, text="Delete a concert", font=("Arial", 12), fg="#000000", command=handle_delete)
     btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
 
+
+    # function to switch to updateConcert
+    def switch_update_concert():
+        if selected_concert_id is None :
+            messagebox.showwarning("Warning", "No concert selected.")
+        else:
+            outer_frame.destroy()
+            from Update_Concert import updateConcert_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+            updateConcert_window(win, selected_concert_id)
+
+    # update a concert button
+    btn_update=tk.Button(buttons_frame,text="Update a concert",font=("Arial", 12), fg="#000000",command=switch_update_concert)
+    btn_update.grid(row=1, column=0,columnspan=2, padx=5, pady=(5, 15))
+
     # function to switch to Home page
     def switch_HomePage_admin():
         outer_frame.destroy()
@@ -70,7 +86,7 @@ def concertsAdmin_window(win):
 
     # return to HomePage button
     btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage_admin)
-    btn_return.grid(row=1, column=0, columnspan=2, pady=10)
+    btn_return.grid(row=2, column=0, columnspan=2, pady=10)
 
     # embed an inner frame in the canvas
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")

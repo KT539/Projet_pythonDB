@@ -125,6 +125,12 @@ def updateVisitor(selected_visitor_id, new_fname, new_lname, new_bdate, new_emai
     cursor.execute('UPDATE visitors SET first_name= %s, last_name = %s, birthdate = %s, email = %s WHERE visitors.id = %s', (new_fname, new_lname, new_bdate, new_email, selected_visitor_id))
     conn.commit()
 
+def updateConcert(selected_concert_id,new_name,new_date,new_price,new_snmbr,new_capacity,new_band):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('UPDATE concerts SET name=%s,date=%s,price=%s,scene_number=%s,max_capacity=%s,band_id=%s WHERE concerts.id=%s' , (new_name,new_date,new_price,new_snmbr,new_capacity,new_band,selected_concert_id))
+    conn.commit()
+
 def deleteVisReservation(selected_visitor_id):
     conn = connect_to_DB()
     cursor = conn.cursor()
