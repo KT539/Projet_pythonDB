@@ -4,7 +4,7 @@
 # Version: 0.2, last modified:  19.05.2025
 
 import tkinter as tk
-from Login import login_window
+from Login_test import login_window
 
 
 def main():

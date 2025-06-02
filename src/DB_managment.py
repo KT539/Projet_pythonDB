@@ -17,18 +17,18 @@ def connect_to_DB():
     )
     return connexion
 
-def loginAdmin_request(email, password_hash):
-    conn = connect_to_DB()
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM visitors WHERE email=%s AND hash=%s AND is_admin=True', (email, password_hash))
-    visitor = cursor.fetchone()
-    cursor.close()
-    return visitor is not None # originally had an else structure, ChatGPT suggested the "is not" formulation
+# def loginAdmin_request(email, password_hash):
+#     conn = connect_to_DB()
+#     cursor = conn.cursor()
+#     cursor.execute('SELECT * FROM visitors WHERE email=%s AND hash=%s AND is_admin=True', (email, password_hash))
+#     visitor = cursor.fetchone()
+#     cursor.close()
+#     return visitor is not None # originally had an else structure, ChatGPT suggested the "is not" formulation
 
 def login_request(email, password_hash):
     conn = connect_to_DB()
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM visitors WHERE email=%s AND hash=%s AND is_admin=False', (email, password_hash))
+    cursor.execute('SELECT * FROM visitors WHERE email=%s AND hash=%s', (email, password_hash))
     visitor = cursor.fetchone()
     cursor.close()
     return visitor is not None

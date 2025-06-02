@@ -119,8 +119,8 @@ def bandsAdmin_window(win):
         # deselect a widget on click
         if widget == selected_band:
             widget.config(bg="white")
-            selected_concert = None
-            selected_concert_id = None
+            selected_band = None
+            selected_band_id = None
         else:
             # Deselect the previously selected widget
             if selected_band is not None:
