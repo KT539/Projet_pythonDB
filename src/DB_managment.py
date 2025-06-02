@@ -50,6 +50,14 @@ def get_username(email):
     cursor.close()
     return username[0] if username else None
 
+def get_admin_status(email):
+    conn = connect_to_DB()
+    cursor = conn.cursor()
+    cursor.execute('SELECT is_admin FROM visitors WHERE email=%s', (email,))
+    admin_status = cursor.fetchone()
+    cursor.close()
+    return admin_status[0] if admin_status else None
+
 def reservations_requests(visitor_id):
     conn = connect_to_DB()
     cursor = conn.cursor()

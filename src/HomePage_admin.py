@@ -14,7 +14,7 @@ from Login import login_window
 
 def homepageAdmin_window(win):
 
-    win.title("Home - " + win.username)
+    win.title("HarmoniK - Home Page")
 
     image_path = ".//background_img_admin.png"
     img = Image.open(image_path)
@@ -41,7 +41,7 @@ def homepageAdmin_window(win):
     inner_frame.grid(row=1, column=0)
 
     # title label
-    label_title = tk.Label(inner_frame, text="Home", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
+    label_title = tk.Label(inner_frame, text="Welcome, " + win.username, width=15, height=1, font=("Arial", 25, "bold"), fg="#000000")
     label_title.grid(row=0, column=0, padx=10, pady=(20, 40), sticky="n")
 
     # homePage image

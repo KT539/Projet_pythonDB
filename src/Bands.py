@@ -38,7 +38,7 @@ def bands_window(win):
 
     # return to HomePage button
     btn_return = tk.Button(outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage)
-    btn_return.grid(row=2, column=0, columnspan=2, pady=10)
+    btn_return.grid(row=2, column=0, columnspan=2, pady=20)
 
     # embed an inner frame in the canvas
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")

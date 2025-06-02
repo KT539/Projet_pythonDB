@@ -32,19 +32,19 @@ def login_window(win):
     inner_frame.grid(row=1, column=0)
 
     # title label
-    label_title = tk.Label(inner_frame, text="Login", width=10, height=1, font=("Arial", 25, "bold"), fg="#000000")
-    label_title.grid(row=0, column=0, padx=10, pady=(10, 60), sticky="n")
+    label_title = tk.Label(inner_frame, text="HarmoniK Festival \nLogin", width=15, height=2, font=("Arial", 25, "bold"), fg="#000000")
+    label_title.grid(row=0, column=0, padx=10, pady=(20, 50), sticky="n")
 
     # Email entry
-    email_label = tk.Label(inner_frame, text="Enter your email", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
-    email_label.grid(row=1, column=0, padx=10,pady=(50, 5), sticky="nsew")
-    email_entry = tk.Entry(inner_frame, width=40)
+    email_label = tk.Label(inner_frame, text="Enter your email", width=15, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    email_label.grid(row=1, column=0, padx=10,pady=(40, 5), sticky="nsew")
+    email_entry = tk.Entry(inner_frame, width=55)
     email_entry.grid(row=2, column=0, padx=10,pady=(5, 30))
 
     # Password entry
-    password_label = tk.Label(inner_frame, text="Enter your password", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    password_label = tk.Label(inner_frame, text="Enter your password", width=15, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
     password_label.grid(row=3, column=0, padx=10,pady=(25, 5), sticky="nsew")
-    password_entry = tk.Entry(inner_frame, width=40, show="*")
+    password_entry = tk.Entry(inner_frame, width=55, show="*")
     password_entry.grid(row=4, column=0, padx=10,pady=(5, 10))
 
     # function to switch to admin Home page
@@ -88,11 +88,11 @@ def login_window(win):
 
     # Button to log in
     btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=check_login)
-    btn_login.grid(row=6, column=0, padx=10,pady=(20, 60))
+    btn_login.grid(row=6, column=0, padx=10,pady=(20, 50))
 
     # registration label
     label_registration = tk.Label(inner_frame, text="Not registered yet ?", width=20, height=1, font=("Arial", 15), fg="#000000")
-    label_registration.grid(row=7, column=0, padx=10, pady=(50, 10), sticky="n")
+    label_registration.grid(row=7, column=0, padx=10, pady=(40, 10), sticky="n")
 
     # function to switch to registration page
     def switch_register():

@@ -9,7 +9,7 @@ from DB_managment import newConcert
 
 def addConcert_window(win):
 
-    win.title("Adding a new concert" + win.username)
+    win.title("Adding a new concert - " + win.username)
 
     # configure the main window
     win.grid_rowconfigure(0, weight=1)
