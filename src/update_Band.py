@@ -73,6 +73,11 @@ def updateBand_window(win, selected_band_id):
         new_origin = origin_entry.get()
         new_desc = desc_entry.get()
 
+        # Check if any field is empty
+        if not all([new_name, new_genre, new_origin, new_desc]):
+            messagebox.showwarning("Missing Information", "Please fill in all fields!")
+            return
+
         updateBand(selected_band_id, new_name, new_genre, new_origin, new_desc)
         messagebox.showinfo("Confirmation", "You have updated the band's info.")
         switch_bandsAdmin()
