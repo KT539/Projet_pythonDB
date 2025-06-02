@@ -85,6 +85,22 @@ def updateConcert_window(win, selected_concert_id):
         new_capacity = capacity_entry.get()
         new_band = band_entry.get()
 
+        # Check if any field is empty
+        if not all([new_name, new_date, new_price, new_snmbr, new_capacity, new_band]):
+            messagebox.showwarning("Missing Information", "Please fill in all fields!")
+            return
+
+        # (Optional) Check if numeric fields are valid
+        try:
+            float(new_price)
+            int(new_snmbr)
+            int(new_capacity)
+            int(new_band)
+        except ValueError:
+            messagebox.showerror("Invalid Input",
+                                 "Price must be a number. Scene number, capacity, and band ID must be integers.")
+            return
+
         updateConcert(selected_concert_id, new_name, new_date, new_price, new_snmbr, new_capacity, new_band)
         messagebox.showinfo("Confirmation", "You have updated the concert.")
         switch_concertsAdmin()
