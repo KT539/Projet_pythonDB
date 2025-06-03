@@ -58,15 +58,10 @@ def addBand_window(win):
     bdesc_entry = tk.Entry(inner_frame, width=60)
     bdesc_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 70))
 
-    # function to switch to Concerts_admin page
-    # def switch_Bands_admin():
-    #     outer_frame.destroy()
-    #     from Bands_admin import bandsAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-    #     bandsAdmin_window(win)
 
     def switch_Bands():
         outer_frame.destroy()
-        from Bands_test import bands_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        from Bands import bands_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         bands_window(win)
 
     #function to handle adding a new band

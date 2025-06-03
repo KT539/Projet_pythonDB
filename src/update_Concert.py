@@ -72,10 +72,10 @@ def updateConcert_window(win, selected_concert_id):
     band_entry.grid(row=12, column=0, columnspan=2, padx=10, pady=(5, 15))
 
     # function to switch to Concerts_admin page
-    def switch_concertsAdmin():
+    def switch_Concerts():
         outer_frame.destroy()
-        from Concerts_admin import concertsAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        concertsAdmin_window(win)
+        from Concerts import concerts_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        concerts_window(win)
 
     def handle_update():
         new_name = name_entry.get()
@@ -86,29 +86,23 @@ def updateConcert_window(win, selected_concert_id):
         new_band = band_entry.get()
 
         # Check if any field is empty
-        if not all([new_name, new_date, new_price, new_snmbr, new_capacity, new_band]):
-            messagebox.showwarning("Missing Information", "Please fill in all fields!")
+        if not new_name and new_date and new_price and new_snmbr and new_capacity and new_band:
+            messagebox.showwarning("Warning", "Please fill in all fields.")
             return
 
-        # (Optional) Check if numeric fields are valid
-        try:
-            float(new_price)
-            int(new_snmbr)
-            int(new_capacity)
-            int(new_band)
-        except ValueError:
-            messagebox.showerror("Invalid Input",
-                                 "Price must be a number. Scene number, capacity, and band ID must be integers.")
+        # Check if fields are valid
+        if new_snmbr is not int or new_capacity is not int or new_price is not float or new_band is not int:
+            messagebox.showerror("Error","Price must be a number. Scene number, capacity, and band ID must be integers.")
             return
 
         updateConcert(selected_concert_id, new_name, new_date, new_price, new_snmbr, new_capacity, new_band)
         messagebox.showinfo("Confirmation", "You have updated the concert.")
-        switch_concertsAdmin()
+        switch_Concerts()
 
     # Button to update the account
     btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_update)
     btn_register.grid(row=13, column=0, pady=(20, 20))
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_concertsAdmin)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_Concerts)
     btn_cancel.grid(row=13, column=1, pady=(20, 20))
