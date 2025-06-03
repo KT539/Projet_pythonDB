@@ -47,16 +47,10 @@ def login_window(win):
     password_entry = tk.Entry(inner_frame, width=55, show="*")
     password_entry.grid(row=4, column=0, padx=10,pady=(5, 10))
 
-    # function to switch to admin Home page
-    def switch_HomePage_admin():
-        outer_frame.destroy()
-        from HomePage_admin import homepageAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        homepageAdmin_window(win)
-
     # function to switch to Home page
-    def switch_HomePage():
+    def switch_Homepage_test():
         outer_frame.destroy()
-        from HomePage import homepage_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        from Homepage import homepage_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         homepage_window(win)
 
     # function to check the login credentials and make the switch
@@ -64,31 +58,28 @@ def login_window(win):
         email = email_entry.get()
         password = password_entry.get()
         password_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
-        from DB_managment import loginAdmin_request, login_request, get_visitor_id, get_username
-        if loginAdmin_request(email, password_hash):
+        from DB_managment import login_request, get_visitor_id, get_username
+        if login_request(email, password_hash):
             win.visitor_id = get_visitor_id(email)
             win.username = get_username(email)
-            switch_HomePage_admin()
-        elif login_request(email, password_hash):
-            win.visitor_id = get_visitor_id(email)
-            win.username = get_username(email)
-            switch_HomePage()
+            win.email = email
+            switch_Homepage_test()
         else:
             messagebox.showerror("Error", "Invalid credentials, please try again.")
 
     # function to switch to updatePassword page
     def switch_updatePassword():
         outer_frame.destroy()
-        from update_Password import updatePassword_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        from update_Password import updatePassword_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         updatePassword_window(win)
 
-    #button to modify password
+    # button to modify password
     btn_update_pswd = tk.Button(inner_frame, text="Forgot your password ?", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_updatePassword)
     btn_update_pswd.grid(row=5, column=0, padx=10, pady=(5, 40))
 
     # Button to log in
     btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=check_login)
-    btn_login.grid(row=6, column=0, padx=10,pady=(20, 50))
+    btn_login.grid(row=6, column=0, padx=10, pady=(20, 50))
 
     # registration label
     label_registration = tk.Label(inner_frame, text="Not registered yet ?", width=20, height=1, font=("Arial", 15), fg="#000000")
@@ -102,4 +93,4 @@ def login_window(win):
 
     # Button to register
     btn_register = tk.Button(inner_frame, text="Sign up", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_register)
-    btn_register.grid(row=8, column=0, padx=10,pady=(10, 50))
+    btn_register.grid(row=8, column=0, padx=10, pady=(10, 50))

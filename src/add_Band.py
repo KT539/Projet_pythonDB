@@ -59,10 +59,15 @@ def addBand_window(win):
     bdesc_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 70))
 
     # function to switch to Concerts_admin page
-    def switch_Bands_admin():
+    # def switch_Bands_admin():
+    #     outer_frame.destroy()
+    #     from Bands_admin import bandsAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+    #     bandsAdmin_window(win)
+
+    def switch_Bands():
         outer_frame.destroy()
-        from Bands_admin import bandsAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        bandsAdmin_window(win)
+        from Bands_test import bands_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        bands_window(win)
 
     #function to handle adding a new band
     def handle_newBand():
@@ -71,10 +76,9 @@ def addBand_window(win):
         band_origin = borigin_entry.get().strip()
         band_description = bdesc_entry.get().strip()
 
-
         newBand(band_name, band_genre, band_origin, band_description)
         messagebox.showinfo("Confirmation", "You have added a new band.")
-        switch_Bands_admin()
+        switch_Bands()
 
 
     # Button to add the band
@@ -82,5 +86,5 @@ def addBand_window(win):
     btn_cadd.grid(row=13, column=0, pady=(70, 10))
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Bands_admin)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Bands)
     btn_cancel.grid(row=13, column=1, pady=(70, 10))

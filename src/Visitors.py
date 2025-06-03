@@ -10,7 +10,7 @@ from src.DB_managment import deleteVisReservation
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
-def visitorsAdmin_window(win):
+def visitors_window(win):
 
     win.title("Visitors - " + win.username)
 
@@ -49,12 +49,17 @@ def visitorsAdmin_window(win):
             deleteVisitor(selected_visitor_id)
             messagebox.showinfo("Confirmation", "You have deleted a visitor account.")
             outer_frame.destroy()
-            visitorsAdmin_window(win)
+            visitors_window(win)
 
     def switch_updateVisitor():
-        outer_frame.destroy()
-        from update_Visitor import updateVisitor_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        updateVisitor_window(win, selected_visitor_id)
+        nonlocal selected_visitor_id
+
+        if selected_visitor_id is None:
+            messagebox.showwarning("Warning", "No visitor selected.")
+        else:
+            outer_frame.destroy()
+            from update_Visitor import updateVisitor_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+            updateVisitor_window(win, selected_visitor_id)
 
     # update a visitor  button
     btn_update = tk.Button(buttons_frame, text="Update", font=("Arial", 12), fg="#000000", command=switch_updateVisitor)
@@ -65,13 +70,13 @@ def visitorsAdmin_window(win):
     btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
 
     # function to switch to Home page
-    def switch_HomePage_admin():
+    def switch_Homepage():
         outer_frame.destroy()
-        from HomePage_admin import homepageAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        homepageAdmin_window(win)
+        from Homepage import homepage_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        homepage_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_HomePage_admin)
+    btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_Homepage)
     btn_return.grid(row=1, column=0, columnspan=2, pady=10)
 
 
@@ -110,8 +115,8 @@ def visitorsAdmin_window(win):
         # deselect a widget on click
         if widget == selected_visitor:
             widget.config(bg="white")
-            selected_concert = None
-            selected_concert_id = None
+            selected_visitor = None
+            selected_visitor_id = None
         else:
             # Deselect the previously selected widget
             if selected_visitor is not None:

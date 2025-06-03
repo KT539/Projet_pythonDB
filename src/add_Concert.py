@@ -71,10 +71,10 @@ def addConcert_window(win):
     bndid_entry.grid(row=12, column=0, columnspan=2, padx=10, pady=(5, 10))
 
     # function to switch to Concerts_admin page
-    def switch_Concerts_admin():
+    def switch_Concerts():
         outer_frame.destroy()
-        from Concerts_admin import concertsAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        concertsAdmin_window(win)
+        from Concerts import concerts_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        concerts_window(win)
 
     #function to handle adding a new concert
     def handle_newConcert():
@@ -87,12 +87,12 @@ def addConcert_window(win):
 
         newConcert(concert_name, concert_date, concert_price, scene_number, max_capacity, band_id)
         messagebox.showinfo("Confirmation", "You have added a new concert.")
-        switch_Concerts_admin()
+        switch_Concerts()
 
     # Button to add the concert
     btn_cadd = tk.Button(inner_frame, text="Add new concert", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_newConcert)
     btn_cadd.grid(row=13, column=0, pady=(45, 5))
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Concerts_admin)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Concerts)
     btn_cancel.grid(row=13, column=1, pady=(45, 5))

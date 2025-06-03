@@ -61,10 +61,10 @@ def updateBand_window(win, selected_band_id):
 
 
     # function to switch to Bands_admin page
-    def switch_bandsAdmin():
+    def switch_Bands():
         outer_frame.destroy()
-        from Bands_admin import bandsAdmin_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
-        bandsAdmin_window(win)
+        from Bands import bands_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+        bands_window(win)
 
     # function to execute the update
     def handle_update():
@@ -80,7 +80,7 @@ def updateBand_window(win, selected_band_id):
 
         updateBand(selected_band_id, new_name, new_genre, new_origin, new_desc)
         messagebox.showinfo("Confirmation", "You have updated the band's info.")
-        switch_bandsAdmin()
+        switch_Bands()
 
     # Button to update the band's info
     btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_update)
@@ -88,5 +88,5 @@ def updateBand_window(win, selected_band_id):
 
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_bandsAdmin)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_Bands)
     btn_cancel.grid(row=11, column=1, pady=(20, 20))

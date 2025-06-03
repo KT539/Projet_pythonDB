@@ -55,7 +55,7 @@ def updatePassword_window(win):
     pswdConf_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=(5, 30))
 
 
-    # function to switch to registration page
+    # function to switch to login page
     def switch_Login():
         outer_frame.destroy()
         from Login import login_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
@@ -68,9 +68,11 @@ def updatePassword_window(win):
         new_pswd_hash = hashlib.sha256(new_pswd.encode('utf-8')).hexdigest()
         new_pswd_conf = pswdConf_entry.get().strip()
 
+        # Check if the fields are filled in
         if not email or not new_pswd or not new_pswd_conf:
             messagebox.showerror("Error", "Please answer all entry fields.")
             return
+        # Check if the account is valid
         elif visitor_id is None:
             messagebox.showerror("Error", "No account found with that email.")
         elif pswd_entry.get() == pswdConf_entry.get():
