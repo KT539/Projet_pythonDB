@@ -70,7 +70,7 @@ def concerts_window(win):
                 messagebox.showwarning("Warning", "No concert selected.")
             else:
                 outer_frame.destroy()
-                from Update_Concert import updateConcert_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+                from update_Concert import updateConcert_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
                 updateConcert_window(win, selected_concert_id)
 
         # update a concert button
