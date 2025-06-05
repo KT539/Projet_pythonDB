@@ -42,13 +42,13 @@ def updateConcert_window(win, selected_concert_id):
     name_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 15))
 
     # date entry
-    date_label = tk.Label(inner_frame, text="Updated date (YYYY-MM-DD)", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    date_label = tk.Label(inner_frame, text="Updated date", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
     date_label.grid(row=3, column=0, columnspan=2, padx=10,pady=(10, 5), sticky="nsew")
     date_entry = tk.Entry(inner_frame, width=60)
     date_entry.grid(row=4, column=0, columnspan=2, padx=10,pady=(5, 20))
 
     # price entry
-    price_label = tk.Label(inner_frame, text="Updated price)", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    price_label = tk.Label(inner_frame, text="Updated price", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
     price_label.grid(row=5, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     price_entry = tk.Entry(inner_frame, width=60)
     price_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=(5, 15))

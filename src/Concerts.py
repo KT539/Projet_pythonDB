@@ -89,7 +89,8 @@ def concerts_window(win):
                 if success:
                     messagebox.showinfo("Confirmation", "You have made a new reservation.")
                     outer_frame.destroy()
-                    concerts_window(win)
+                    from Reservations import reservations_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
+                    reservations_window(win)
                 else:
                     messagebox.showwarning("Warning", "You have already reserved this concert.")
 
