@@ -57,11 +57,11 @@ def concerts_window(win):
                 concerts_window(win)
 
         # add a new concert button
-        btn_add = tk.Button(buttons_frame, text="Add a concert", font=("Arial", 12), fg="#000000", command=switch_addConcert)
+        btn_add = tk.Button(buttons_frame, text="Add a concert", font=("Arial", 12), width=13, fg="#000000", command=switch_addConcert)
         btn_add.grid(row=0, column=0, padx=5, pady=(5, 15))
 
         # delete a concert button
-        btn_del = tk.Button(buttons_frame, text="Delete a concert", font=("Arial", 12), fg="#000000", command=handle_delete)
+        btn_del = tk.Button(buttons_frame, text="Delete a concert", font=("Arial", 12), width=13, fg="#000000", command=handle_delete)
         btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
 
         # function to switch to updateConcert
@@ -74,7 +74,7 @@ def concerts_window(win):
                 updateConcert_window(win, selected_concert_id)
 
         # update a concert button
-        btn_update = tk.Button(buttons_frame, text="Update a concert", font=("Arial", 12), fg="#000000", command=switch_update_concert)
+        btn_update = tk.Button(buttons_frame, text="Update a concert", font=("Arial", 12), width =14, fg="#000000", command=switch_update_concert)
         btn_update.grid(row=1, column=0, columnspan=2, padx=5, pady=(5, 15))
 
     else:

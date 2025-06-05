@@ -36,37 +36,37 @@ def updateConcert_window(win, selected_concert_id):
     label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 25), sticky="n")
 
     # name entry
-    name_label = tk.Label(inner_frame, text="Updated name", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    name_label = tk.Label(inner_frame, text="Updated name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     name_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(25, 5), sticky="nsew")
     name_entry = tk.Entry(inner_frame, width=60)
     name_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 15))
 
     # date entry
-    date_label = tk.Label(inner_frame, text="Updated date", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    date_label = tk.Label(inner_frame, text="Updated date \n (YYYY-MM-DD HH:MM:SS)", width=20, height=2, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     date_label.grid(row=3, column=0, columnspan=2, padx=10,pady=(10, 5), sticky="nsew")
     date_entry = tk.Entry(inner_frame, width=60)
     date_entry.grid(row=4, column=0, columnspan=2, padx=10,pady=(5, 20))
 
     # price entry
-    price_label = tk.Label(inner_frame, text="Updated price", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    price_label = tk.Label(inner_frame, text="Updated price", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     price_label.grid(row=5, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     price_entry = tk.Entry(inner_frame, width=60)
     price_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=(5, 15))
 
     # scene number entry
-    snmbr_label = tk.Label(inner_frame, text="Updated scene number", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    snmbr_label = tk.Label(inner_frame, text="Updated scene number", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     snmbr_label.grid(row=7, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     snmbr_entry = tk.Entry(inner_frame, width=60)
     snmbr_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 15))
 
     # max_capacity entry
-    capacity_label = tk.Label(inner_frame, text="Updated maximum capacity", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    capacity_label = tk.Label(inner_frame, text="Updated maximum capacity", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     capacity_label.grid(row=9, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     capacity_entry = tk.Entry(inner_frame, width=60)
     capacity_entry.grid(row=10, column=0, columnspan=2, padx=10, pady=(5, 15))
 
     # band_id entry
-    band_label = tk.Label(inner_frame, text="Updated band id", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    band_label = tk.Label(inner_frame, text="Updated band id", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     band_label.grid(row=11, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     band_entry = tk.Entry(inner_frame, width=60)
     band_entry.grid(row=12, column=0, columnspan=2, padx=10, pady=(5, 15))
@@ -100,9 +100,9 @@ def updateConcert_window(win, selected_concert_id):
         switch_Concerts()
 
     # Button to update the account
-    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_update)
+    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_update)
     btn_register.grid(row=13, column=0, pady=(20, 20))
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_Concerts)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Concerts)
     btn_cancel.grid(row=13, column=1, pady=(20, 20))

@@ -37,19 +37,19 @@ def updatePassword_window(win):
     label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(10, 75), sticky="n")
 
     # email entry
-    email_label = tk.Label(inner_frame, text="Please enter your email", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    email_label = tk.Label(inner_frame, text="Please enter your email", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     email_label.grid(row=1, column=0, columnspan=2, padx=10, pady=(30, 5), sticky="nsew")
     email_entry = tk.Entry(inner_frame, width=60)
     email_entry.grid(row=2, column=0, columnspan=2, padx=10, pady=(5, 70))
 
     # password entry
-    pswd_label = tk.Label(inner_frame, text="Please enter your new password", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    pswd_label = tk.Label(inner_frame, text="Please enter your new password", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     pswd_label.grid(row=3, column=0, columnspan=2, padx=10,pady=(20, 5), sticky="nsew")
     pswd_entry = tk.Entry(inner_frame, width=60, show="*")
     pswd_entry.grid(row=4, column=0, columnspan=2, padx=10,pady=(5, 15))
 
     # password confirmation
-    pswdConf_label = tk.Label(inner_frame, text="Please confirm your new password", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    pswdConf_label = tk.Label(inner_frame, text="Please confirm your new password", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     pswdConf_label.grid(row=5, column=0, columnspan=2, padx=10, pady=(15, 5), sticky="nsew")
     pswdConf_entry = tk.Entry(inner_frame, width=60, show="*")
     pswdConf_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=(5, 30))
@@ -85,9 +85,9 @@ def updatePassword_window(win):
             return
 
     # Button to update the account
-    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_update)
+    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_update)
     btn_register.grid(row=11, column=0, pady=(100, 20))
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_Login)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Login)
     btn_cancel.grid(row=11, column=1, pady=(100, 20))

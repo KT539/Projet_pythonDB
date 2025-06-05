@@ -41,7 +41,7 @@ def addConcert_window(win):
     cname_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 10))
 
     # concert date entry
-    cdate_label = tk.Label(inner_frame, text="Enter the concert's date (YYYY-MM-DD HH:MM:SS)", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
+    cdate_label = tk.Label(inner_frame, text="Enter the concert's date \n(YYYY-MM-DD HH:MM:SS)", width=20, height=2, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     cdate_label.grid(row=3, column=0, columnspan=2, padx=10,pady=(10, 5), sticky="nsew")
     cdate_entry = tk.Entry(inner_frame, width=60)
     cdate_entry.grid(row=4, column=0, columnspan=2, padx=10,pady=(5, 10))

@@ -35,25 +35,25 @@ def addBand_window(win):
     label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 65), sticky="n")
 
     # band name entry
-    bname_label = tk.Label(inner_frame, text="Enter the band's name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
+    bname_label = tk.Label(inner_frame, text="Enter the band's name", width=12, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     bname_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(65, 5), sticky="nsew")
     bname_entry = tk.Entry(inner_frame, width=60)
     bname_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 10))
 
     # band genre entry
-    bgenre_label = tk.Label(inner_frame, text="Enter the band's genre", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
+    bgenre_label = tk.Label(inner_frame, text="Enter the band's genre", width=12, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     bgenre_label.grid(row=3, column=0, columnspan=2, padx=10,pady=(10, 5), sticky="nsew")
     bgenre_entry = tk.Entry(inner_frame, width=60)
     bgenre_entry.grid(row=4, column=0, columnspan=2, padx=10,pady=(5, 10))
 
     # band origin entry
-    borigin_label = tk.Label(inner_frame, text="Enter the band's origin", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
+    borigin_label = tk.Label(inner_frame, text="Enter the band's origin", width=12, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     borigin_label.grid(row=5, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     borigin_entry = tk.Entry(inner_frame, width=60)
     borigin_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=(5, 10))
 
     # scene nb entry
-    bdesc_label = tk.Label(inner_frame, text="Enter the band's description", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
+    bdesc_label = tk.Label(inner_frame, text="Enter the band's description", width=12, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     bdesc_label.grid(row=7, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     bdesc_entry = tk.Entry(inner_frame, width=60)
     bdesc_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 70))

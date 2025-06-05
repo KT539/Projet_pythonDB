@@ -48,8 +48,7 @@ def reservations_window(win):
                 reservations_window(win)
 
         # cancel a reservation button
-        btn_cancel = tk.Button(buttons_frame, text="Cancel my reservation", font=("Arial", 12), fg="#000000",
-                               command=lambda: handle_delete())
+        btn_cancel = tk.Button(buttons_frame, text="Cancel my reservation", font=("Arial", 12), fg="#000000", command=lambda: handle_delete())
         btn_cancel.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 15))
 
     # function to switch to Home page

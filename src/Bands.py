@@ -56,11 +56,11 @@ def bands_window(win):
                 bands_window(win)
 
         # add a new band button
-        btn_add = tk.Button(buttons_frame, text="Add a band", font=("Arial", 12), fg="#000000", command=switch_addBand)
+        btn_add = tk.Button(buttons_frame, text="Add a band", font=("Arial", 12), width=12, fg="#000000", command=switch_addBand)
         btn_add.grid(row=0, column=0, padx=5, pady=(5, 15))
 
         # delete a band button
-        btn_del = tk.Button(buttons_frame, text="Delete a band", font=("Arial", 12), fg="#000000", command=handle_delete)
+        btn_del = tk.Button(buttons_frame, text="Delete a band", font=("Arial", 12), width=12, fg="#000000", command=handle_delete)
         btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
 
         # function to switch to update_Band page
@@ -73,7 +73,7 @@ def bands_window(win):
                 updateBand_window(win, selected_band_id)
 
         # update a band button
-        btn_updt = tk.Button(buttons_frame, text="Update a band", font=("Arial", 12), fg="#000000", command=switch_updateBand)
+        btn_updt = tk.Button(buttons_frame, text="Update a band", font=("Arial", 12), width=12, fg="#000000", command=switch_updateBand)
         btn_updt.grid(row=1, column=0, columnspan=2, padx=5, pady=(5, 15))
 
         def select_band(widget, bnd_id):

@@ -36,25 +36,25 @@ def updateBand_window(win, selected_band_id):
     label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 25), sticky="n")
 
     # name entry
-    name_label = tk.Label(inner_frame, text="Updated band name", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    name_label = tk.Label(inner_frame, text="Updated band name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     name_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(25, 5), sticky="nsew")
     name_entry = tk.Entry(inner_frame, width=60)
     name_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 15))
 
     # genre entry
-    genre_label = tk.Label(inner_frame, text="Updated musical genre", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    genre_label = tk.Label(inner_frame, text="Updated musical genre", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     genre_label.grid(row=3, column=0, columnspan=2, padx=10,pady=(10, 5), sticky="nsew")
     genre_entry = tk.Entry(inner_frame, width=60)
     genre_entry.grid(row=4, column=0, columnspan=2, padx=10,pady=(5, 20))
 
     # origin entry
-    origin_label = tk.Label(inner_frame, text="Updated origin", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    origin_label = tk.Label(inner_frame, text="Updated origin", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     origin_label.grid(row=5, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     origin_entry = tk.Entry(inner_frame, width=60)
     origin_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=(5, 15))
 
     # description entry
-    desc_label = tk.Label(inner_frame, text="Updated description", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    desc_label = tk.Label(inner_frame, text="Updated description", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     desc_label.grid(row=7, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     desc_entry = tk.Entry(inner_frame, width=60)
     desc_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 15))
@@ -83,10 +83,10 @@ def updateBand_window(win, selected_band_id):
         switch_Bands()
 
     # Button to update the band's info
-    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_update)
+    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_update)
     btn_register.grid(row=11, column=0, pady=(20, 20))
 
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_Bands)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Bands)
     btn_cancel.grid(row=11, column=1, pady=(20, 20))

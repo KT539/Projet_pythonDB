@@ -5,7 +5,6 @@
 
 import tkinter as tk
 from PIL import Image, ImageTk
-from Login import login_window
 from DB_managment import get_admin_status
 
 def homepage_window(win):
@@ -41,8 +40,7 @@ def homepage_window(win):
     inner_frame.grid(row=1, column=0)
 
     # title label
-    label_title = tk.Label(inner_frame, text="Welcome, " + win.username, width=15, height=1, font=("Arial", 25, "bold"),
-                           fg="#000000")
+    label_title = tk.Label(inner_frame, text="Welcome, " + win.username, width=15, height=1, font=("Arial", 25, "bold"), fg="#000000")
     label_title.grid(row=0, column=0, padx=10, pady=(20, 40), sticky="n")
 
     # homePage image
@@ -60,7 +58,7 @@ def homepage_window(win):
         reservations_window(win)
 
     # button to see all reservations
-    btn_reservations = tk.Button(inner_frame, text="Reservations", font=("Arial", 15), width=20, command=switch_reservations)
+    btn_reservations = tk.Button(inner_frame, text="My reservations" if admin_status == 0 else "Reservations", font=("Arial", 15), width=15, command=switch_reservations)
     btn_reservations.grid(row=2, column=0, pady=10)
 
     # function to switch to concerts page
@@ -70,7 +68,7 @@ def homepage_window(win):
         concerts_window(win)
 
     # button to see all concerts
-    btn_concerts = tk.Button(inner_frame, text="Concerts", font=("Arial", 15), width=20, command=switch_concerts)
+    btn_concerts = tk.Button(inner_frame, text="Concerts", font=("Arial", 15), width=15, command=switch_concerts)
     btn_concerts.grid(row=3, column=0, pady=10)
 
     # function to switch to bands page
@@ -80,7 +78,7 @@ def homepage_window(win):
         bands_window(win)
 
     # button to see all bands
-    btn_bands = tk.Button(inner_frame, text="Bands", font=("Arial", 15), width=20, command=switch_bands)
+    btn_bands = tk.Button(inner_frame, text="Bands", font=("Arial", 15), width=15, command=switch_bands)
     btn_bands.grid(row=4, column=0, pady=10)
 
     if admin_status == 1 :
@@ -91,7 +89,7 @@ def homepage_window(win):
             visitors_window(win)
 
         # button to see all visitors
-        btn_visitors = tk.Button(inner_frame, text="Visitors", font=("Arial", 15), width=20, command=switch_visitors)
+        btn_visitors = tk.Button(inner_frame, text="Visitors", font=("Arial", 15), width=15, command=switch_visitors)
         btn_visitors.grid(row=5, column=0, pady=10)
 
     # function to switch to login page
@@ -101,7 +99,7 @@ def homepage_window(win):
         login_window(win)
 
     # logout button
-    btn_logout = tk.Button(inner_frame, text="Log out", font=("Arial", 15), width=20, command=switch_login)
+    btn_logout = tk.Button(inner_frame, text="Log out", font=("Arial", 12), width=10, command=switch_login)
     if admin_status == 0 :
         btn_logout.grid(row=5, column=0, pady=(65, 30))
     else:

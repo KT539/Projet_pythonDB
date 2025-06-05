@@ -62,11 +62,11 @@ def visitors_window(win):
             updateVisitor_window(win, selected_visitor_id)
 
     # update a visitor  button
-    btn_update = tk.Button(buttons_frame, text="Update", font=("Arial", 12), fg="#000000", command=switch_updateVisitor)
+    btn_update = tk.Button(buttons_frame, text="Update a visitor", font=("Arial", 12), width=13, fg="#000000", command=switch_updateVisitor)
     btn_update.grid(row=0, column=0, padx=5, pady=(5, 15))
 
     # delete a visitor button
-    btn_del = tk.Button(buttons_frame, text="Delete", font=("Arial", 12), fg="#000000", command=handle_delete)
+    btn_del = tk.Button(buttons_frame, text="Delete a visitor", font=("Arial", 12), width=13, fg="#000000", command=handle_delete)
     btn_del.grid(row=0, column=1, padx=5, pady=(5, 15))
 
     # function to switch to Home page

@@ -36,25 +36,25 @@ def updateVisitor_window(win, selected_visitor_id):
     label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 25), sticky="n")
 
     # firstname entry
-    fname_label = tk.Label(inner_frame, text="Updated first name", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    fname_label = tk.Label(inner_frame, text="Updated first name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     fname_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(25, 5), sticky="nsew")
     fname_entry = tk.Entry(inner_frame, width=60)
     fname_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 15))
 
     # lastname entry
-    lname_label = tk.Label(inner_frame, text="Updated last name", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    lname_label = tk.Label(inner_frame, text="Updated last name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     lname_label.grid(row=3, column=0, columnspan=2, padx=10,pady=(10, 5), sticky="nsew")
     lname_entry = tk.Entry(inner_frame, width=60)
     lname_entry.grid(row=4, column=0, columnspan=2, padx=10,pady=(5, 20))
 
     # birthdate entry
-    bdate_label = tk.Label(inner_frame, text="Updated birthdate (YYYY-MM-DD)", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    bdate_label = tk.Label(inner_frame, text="Updated birthdate (YYYY-MM-DD)", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     bdate_label.grid(row=5, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     bdate_entry = tk.Entry(inner_frame, width=60)
     bdate_entry.grid(row=6, column=0, columnspan=2, padx=10, pady=(5, 15))
 
     # email entry
-    email_label = tk.Label(inner_frame, text="Updated email", width=20, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000")
+    email_label = tk.Label(inner_frame, text="Updated email", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
     email_label.grid(row=7, column=0, columnspan=2, padx=10, pady=(10, 5), sticky="nsew")
     email_entry = tk.Entry(inner_frame, width=60)
     email_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 15))
@@ -67,7 +67,7 @@ def updateVisitor_window(win, selected_visitor_id):
         visitors_window(win)
 
     # Button to cancel
-    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=switch_visitors)
+    btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_visitors)
     btn_cancel.grid(row=11, column=1, pady=(20, 20))
 
 
@@ -83,5 +83,5 @@ def updateVisitor_window(win, selected_visitor_id):
         switch_visitors()
 
     # Button to update the account
-    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 15), bg="#FFFFFF", fg="#000000", command=handle_update)
+    btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_update)
     btn_register.grid(row=11, column=0, pady=(20, 20))
