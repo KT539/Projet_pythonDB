@@ -1,3 +1,8 @@
+# Project: PythonDB: HarmoniK Festival
+# Title: Reservations.py
+# Author: Kilian Testard + Ahmet Karabulut
+# Version: 1.0, last modified:  10.06.2025
+
 import tkinter as tk
 from tkinter import messagebox
 from DB_managment import reservations_requests, reservationsAdmin_requests, deleteReservation, get_admin_status

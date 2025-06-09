@@ -1,7 +1,7 @@
-# Project: PythonDB
-# Title: update_Visitor.py
+# Project: PythonDB: HarmoniK Festival
+# Title: update_Concert.py
 # Author: Kilian Testard + Ahmet Karabulut
-# Version: 0.2, last modified:  19.05.2025
+# Version: 1.0, last modified:  10.06.2025
 
 import tkinter as tk
 from tkinter import messagebox
@@ -86,12 +86,17 @@ def updateConcert_window(win, selected_concert_id):
         new_band = band_entry.get()
 
         # Check if any field is empty
-        if not new_name and new_date and new_price and new_snmbr and new_capacity and new_band:
+        if not new_name or not new_date or not new_price or not new_snmbr or not new_capacity or not new_band:
             messagebox.showwarning("Warning", "Please fill in all fields.")
             return
 
         # Check if fields are valid
-        if new_snmbr is not int or new_capacity is not int or new_price is not float or new_band is not int:
+        try:
+            new_price = float(new_price)
+            new_snmbr = int(new_snmbr)
+            new_capacity = int(new_capacity)
+            new_band = int(new_band)
+        except ValueError:
             messagebox.showerror("Error","Price must be a number. Scene number, capacity, and band ID must be integers.")
             return
 

@@ -1,11 +1,12 @@
-# Project: PythonDB
+# Project: PythonDB: HarmoniK Festival
 # Title: DB_managment.py
 # Author: Kilian Testard + Ahmet Karabulut
-# Version: 0.2, last modified:  19.05.2025
-from tkinter import messagebox
+# Version: 1.0, last modified:  10.06.2025
+
 
 import mysql.connector
 from datetime import date
+
 
 # connect to the database
 def connect_to_DB():

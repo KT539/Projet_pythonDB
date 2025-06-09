@@ -1,7 +1,7 @@
-# Project: PythonDB
-# Title: addConcert.py
+# Project: PythonDB: HarmoniK Festival
+# Title: add_Concert.py
 # Author: Kilian Testard + Ahmet Karabulut
-# Version: 0.2, last modified:  19.05.2025
+# Version: 1.0, last modified:  10.06.2025
 
 import tkinter as tk
 from tkinter import messagebox
