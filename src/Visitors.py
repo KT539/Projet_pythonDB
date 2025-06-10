@@ -8,6 +8,7 @@ from tkinter import messagebox
 from DB_managment import visitors_requests, deleteVisitor
 from src.DB_managment import deleteVisReservation
 
+
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
 def visitors_window(win):

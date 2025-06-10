@@ -7,6 +7,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 from DB_managment import get_admin_status
 
+
 def homepage_window(win):
 
     win.title("HarmoniK - Home Page")

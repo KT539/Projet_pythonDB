@@ -6,6 +6,9 @@
 import tkinter as tk
 from tkinter import messagebox
 from DB_managment import concerts_requests, newReservation, get_admin_status, deleteConcert
+from src.Reservations import reservations_window
+
+
 
 '''used both ChatGPT and official doc to learn how to connect to a database
    with Python and understand the basics of the mysql.connector library'''
@@ -78,6 +81,7 @@ def concerts_window(win):
         btn_update.grid(row=1, column=0, columnspan=2, padx=5, pady=(5, 15))
 
     else:
+        # function to handle a new reservation
         def handle_newReservation():
             nonlocal selected_concert_id
             if selected_concert_id is None:
@@ -89,7 +93,6 @@ def concerts_window(win):
                 if success:
                     messagebox.showinfo("Confirmation", "You have made a new reservation.")
                     outer_frame.destroy()
-                    from Reservations import reservations_window # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
                     reservations_window(win)
                 else:
                     messagebox.showwarning("Warning", "You have already reserved this concert.")

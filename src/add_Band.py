@@ -7,6 +7,7 @@ import tkinter as tk
 from tkinter import messagebox
 from DB_managment import newBand
 
+
 def addBand_window(win):
 
     win.title("Adding a new band - " + win.username)
@@ -59,12 +60,13 @@ def addBand_window(win):
     bdesc_entry.grid(row=8, column=0, columnspan=2, padx=10, pady=(5, 70))
 
 
+    # function to switch to Bands window
     def switch_Bands():
         outer_frame.destroy()
         from Bands import bands_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         bands_window(win)
 
-    #function to handle adding a new band
+    # function to handle adding a new band
     def handle_newBand():
         band_name = bname_entry.get().strip()
         band_genre = bgenre_entry.get().strip()

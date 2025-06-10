@@ -7,7 +7,6 @@
 import hashlib
 import tkinter as tk
 from tkinter import messagebox
-
 from DB_managment import newVisitor
 
 

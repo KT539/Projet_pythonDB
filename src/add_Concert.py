@@ -7,6 +7,7 @@ import tkinter as tk
 from tkinter import messagebox
 from DB_managment import newConcert
 
+
 def addConcert_window(win):
 
     win.title("Adding a new concert - " + win.username)
@@ -76,7 +77,7 @@ def addConcert_window(win):
         from Concerts import concerts_window  # moved the import statement here on ChatGPT's suggestion, after experiencing circular import issues
         concerts_window(win)
 
-    #function to handle adding a new concert
+    # function to handle adding a new concert
     def handle_newConcert():
         concert_name = cname_entry.get().strip()
         concert_date = cdate_entry.get().strip()

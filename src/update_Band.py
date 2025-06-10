@@ -74,7 +74,7 @@ def updateBand_window(win, selected_band_id):
         new_desc = desc_entry.get()
 
         # Check if any field is empty
-        if not all([new_name, new_genre, new_origin, new_desc]):
+        if not new_name or not new_genre or not new_origin or not new_desc:
             messagebox.showwarning("Missing Information", "Please fill in all fields!")
             return
 
