@@ -91,8 +91,8 @@ def addConcert_window(win):
 
     # Button to add the concert
     btn_cadd = tk.Button(inner_frame, text="Add new concert", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_newConcert)
-    btn_cadd.grid(row=13, column=0, pady=(45, 5))
+    btn_cadd.grid(row=13, column=0, pady=(40, 10))
 
     # Button to cancel
     btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Concerts)
-    btn_cancel.grid(row=13, column=1, pady=(45, 5))
+    btn_cancel.grid(row=13, column=1, pady=(40, 10))

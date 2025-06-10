@@ -53,8 +53,8 @@ def reservations_window(win):
                 reservations_window(win)
 
         # cancel a reservation button
-        btn_cancel = tk.Button(buttons_frame, text="Cancel my reservation", font=("Arial", 12), fg="#000000", command=lambda: handle_delete())
-        btn_cancel.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 15))
+        btn_cancel = tk.Button(buttons_frame, text="Cancel my reservation", font=("Arial", 12), width=18, fg="#000000", command=lambda: handle_delete())
+        btn_cancel.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 20))
 
     # function to switch to Home page
     def switch_Homepage():
@@ -63,8 +63,8 @@ def reservations_window(win):
         homepage_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(buttons_frame if admin_status == 0 else outer_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_Homepage)
-    btn_return.grid(row=1 if admin_status == 0 else 2, column=0, columnspan=2, pady=10)
+    btn_return = tk.Button(buttons_frame if admin_status == 0 else outer_frame, text="Return to Home Page", font=("Arial", 12), width=18, fg="#000000", command=switch_Homepage)
+    btn_return.grid(row=1 if admin_status == 0 else 2, column=0, columnspan=2, pady=(10, 20))
 
     # embed an inner frame in the canvas
     inner_frame = tk.Frame(canvas, bg="lightgray", bd=2, relief="groove")

@@ -95,7 +95,7 @@ def concerts_window(win):
                     messagebox.showwarning("Warning", "You have already reserved this concert.")
 
         # make a reservation button
-        btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), fg="#000000", command=lambda: handle_newReservation())
+        btn_res = tk.Button(buttons_frame, text="Make a reservation", font=("Arial", 12), width=16, fg="#000000", command=lambda: handle_newReservation())
         btn_res.grid(row=0, column=0, columnspan=2, padx=5, pady=(5, 15))
 
     # function to switch to Home page
@@ -105,7 +105,7 @@ def concerts_window(win):
         homepage_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_Homepage)
+    btn_return = tk.Button(buttons_frame, text="Return to Home Page", font=("Arial", 12), width=18, fg="#000000", command=switch_Homepage)
     btn_return.grid(row=2 if admin_status == 1 else 1, column=0, columnspan=2, pady=10)
 
     # embed an inner frame in the canvas

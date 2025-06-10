@@ -78,8 +78,8 @@ def addBand_window(win):
 
     # Button to add the band
     btn_cadd = tk.Button(inner_frame, text="Add new band", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_newBand)
-    btn_cadd.grid(row=13, column=0, pady=(70, 10))
+    btn_cadd.grid(row=13, column=0, pady=(60, 10))
 
     # Button to cancel
     btn_cancel = tk.Button(inner_frame, text="Cancel", width=15, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Bands)
-    btn_cancel.grid(row=13, column=1, pady=(70, 10))
+    btn_cancel.grid(row=13, column=1, pady=(60, 10))

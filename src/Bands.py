@@ -131,5 +131,5 @@ def bands_window(win):
         homepage_window(win)
 
     # return to HomePage button
-    btn_return = tk.Button(outer_frame if admin_status == 0 else buttons_frame, text="Return to Home Page", font=("Arial", 12), fg="#000000", command=switch_Homepage)
+    btn_return = tk.Button(outer_frame if admin_status == 0 else buttons_frame, text="Return to Home Page", font=("Arial", 12), width=18, fg="#000000", command=switch_Homepage)
     btn_return.grid(row=2, column=0, columnspan=2, pady=20 if admin_status == 0 else 10)

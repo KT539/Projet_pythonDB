@@ -33,11 +33,11 @@ def updateBand_window(win, selected_band_id):
 
     # title label
     label_title = tk.Label(inner_frame, text="Please update the \nband's info", width=20, height=2, font=("Arial", 20, "bold"), fg="#000000")
-    label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(20, 25), sticky="n")
+    label_title.grid(row=0, column=0, columnspan=2, padx=10, pady=(15, 55), sticky="n")
 
     # name entry
     name_label = tk.Label(inner_frame, text="Updated band name", width=20, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000")
-    name_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(25, 5), sticky="nsew")
+    name_label.grid(row=1, column=0, columnspan=2, padx=10,pady=(55, 5), sticky="nsew")
     name_entry = tk.Entry(inner_frame, width=60)
     name_entry.grid(row=2, column=0, columnspan=2, padx=10,pady=(5, 15))
 
@@ -84,9 +84,9 @@ def updateBand_window(win, selected_band_id):
 
     # Button to update the band's info
     btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_update)
-    btn_register.grid(row=11, column=0, pady=(20, 20))
+    btn_register.grid(row=11, column=0, pady=(120, 10))
 
 
     # Button to cancel
     btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Bands)
-    btn_cancel.grid(row=11, column=1, pady=(20, 20))
+    btn_cancel.grid(row=11, column=1, pady=(120, 10))

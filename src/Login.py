@@ -79,11 +79,11 @@ def login_window(win):
 
     # Button to log in
     btn_login = tk.Button(inner_frame, text="Sign in", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=check_login)
-    btn_login.grid(row=6, column=0, padx=10, pady=(20, 50))
+    btn_login.grid(row=6, column=0, padx=10, pady=(20, 55))
 
     # registration label
     label_registration = tk.Label(inner_frame, text="Not registered yet ?", width=15, height=1, font=("Arial", 12), fg="#000000")
-    label_registration.grid(row=7, column=0, padx=10, pady=(40, 10), sticky="n")
+    label_registration.grid(row=7, column=0, padx=10, pady=(45, 5), sticky="n")
 
     # function to switch to registration page
     def switch_register():
@@ -93,4 +93,4 @@ def login_window(win):
 
     # Button to register
     btn_register = tk.Button(inner_frame, text="Sign up", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_register)
-    btn_register.grid(row=8, column=0, padx=10, pady=(10, 50))
+    btn_register.grid(row=8, column=0, padx=10, pady=(5, 50))

@@ -86,8 +86,8 @@ def updatePassword_window(win):
 
     # Button to update the account
     btn_register = tk.Button(inner_frame, text="Update", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_update)
-    btn_register.grid(row=11, column=0, pady=(100, 20))
+    btn_register.grid(row=11, column=0, pady=(110, 10))
 
     # Button to cancel
     btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_Login)
-    btn_cancel.grid(row=11, column=1, pady=(100, 20))
+    btn_cancel.grid(row=11, column=1, pady=(110, 10))

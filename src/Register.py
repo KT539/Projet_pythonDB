@@ -99,16 +99,16 @@ def register_window(win):
 
     # Button to register
     btn_register = tk.Button(inner_frame, text="Register", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=handle_register)
-    btn_register.grid(row=11, column=0, pady=(20, 20))
+    btn_register.grid(row=11, column=0, pady=(30, 20))
 
 
     # Button to cancel
     btn_cancel = tk.Button(inner_frame, text="Cancel", width=10, height=1, font=("Arial", 12), bg="#FFFFFF", fg="#000000", command=switch_login)
-    btn_cancel.grid(row=11, column=1, pady=(20, 20))
+    btn_cancel.grid(row=11, column=1, pady=(30, 20))
 
     # required fields label
     rf_label = tk.Label(inner_frame, text="Fields marked with an * \nare mandatory", width=20, height=2, font=("Arial", 9), fg="#000000")
-    rf_label.grid(row=12, column=0, columnspan=2, padx=10, pady=(15, 15), sticky="n")
+    rf_label.grid(row=12, column=0, columnspan=2, padx=10, pady=(10, 10), sticky="n")
 
 
 
